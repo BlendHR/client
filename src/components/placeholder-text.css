@@ -1,0 +1,13 @@
+.select {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.placeholder-text {
+  width: 184px;
+  height: 20px;
+  text-align: left;
+  font-size: var(--h3-size);
+  color: var(--color-dimgray-100);
+  font-family: var(--font-montserrat);
+}

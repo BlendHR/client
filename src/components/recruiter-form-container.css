@@ -1,0 +1,26 @@
+.add-recruiters {
+  width: 128px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 27px;
+  flex-shrink: 0;
+}
+.add-recruiters-parent,
+.tag-parent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-14xl);
+  font-size: var(--heading-s-size);
+  color: var(--text);
+}
+.add-recruiters-parent {
+  flex-direction: column;
+  gap: var(--gap-3xs);
+  text-align: left;
+  font-size: var(--h3-size);
+  color: var(--color-dimgray-200);
+  font-family: var(--text-s-regular);
+}

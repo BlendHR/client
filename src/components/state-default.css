@@ -1,0 +1,65 @@
+.card-title,
+.statedefault-child {
+  align-self: stretch;
+  position: relative;
+}
+.statedefault-child {
+  border-radius: var(--br-7xs) var(--br-7xs) 0 0;
+  max-width: 100%;
+  overflow: hidden;
+  height: 200px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.card-title {
+  letter-spacing: -0.02em;
+  line-height: 28px;
+  font-weight: 500;
+}
+.sticky-notes-serbaguna {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--h3-size);
+  letter-spacing: -0.01em;
+  line-height: 24px;
+  color: var(--neutral-80);
+}
+.card-title-parent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-5xs);
+}
+.discount-70-hari {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--text-s-regular-size);
+  line-height: 16px;
+  color: var(--fadetext);
+}
+.statedefault6,
+.text-container {
+  border-radius: var(--br-7xs);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.text-container {
+  align-self: stretch;
+  background-color: var(--t2);
+  padding: var(--padding-5xl);
+  gap: var(--gap-base);
+}
+.statedefault6 {
+  box-shadow: var(--shadow-1);
+  border: 1px solid var(--fadetext);
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--heading-s-size);
+  color: var(--neutral-100);
+  font-family: var(--text-s-regular);
+  flex: 1;
+}

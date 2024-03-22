@@ -1,0 +1,24 @@
+.dropdown1,
+.stateselected1 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.dropdown1 {
+  margin: 0 !important;
+  position: absolute;
+  top: 32px;
+  left: 0;
+  border-radius: var(--br-9xs);
+  background-color: var(--t2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  flex-direction: row;
+  z-index: 1;
+}
+.stateselected1 {
+  width: 109px;
+  height: 28px;
+  flex-direction: column;
+  position: relative;
+  gap: var(--gap-9xs);
+}

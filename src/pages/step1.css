@@ -1,0 +1,99 @@
+.variants-inner {
+  width: 32px;
+  position: relative;
+  height: 32px;
+}
+.variants-child1 {
+  flex: 1;
+  position: relative;
+  background-color: var(--colour-primary-100);
+  height: 2px;
+}
+.variants1,
+.variants2 {
+  top: 87px;
+  width: 112px;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.variants1 {
+  position: absolute;
+  left: 629px;
+  display: flex;
+  align-items: center;
+}
+.variants2 {
+  left: 741px;
+}
+.senior-software-engineer12,
+.step-3-interview,
+.variants2 {
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+.step-3-interview {
+  top: 163px;
+  left: 28px;
+  line-height: 135.5%;
+  font-weight: 600;
+  white-space: pre-wrap;
+  width: 857px;
+}
+.senior-software-engineer12 {
+  top: 239px;
+  left: 148px;
+  font-size: var(--h1-size);
+  letter-spacing: -0.02em;
+  line-height: 28px;
+  font-family: var(--text-s-regular);
+  color: var(--neutral-100);
+  width: 415px;
+}
+.contact-us,
+.you-will-be {
+  position: absolute;
+  line-height: 135.5%;
+}
+.you-will-be {
+  top: 328px;
+  left: 301px;
+  font-size: var(--font-size-17xl);
+  color: var(--text);
+  text-align: center;
+}
+.contact-us {
+  top: 587px;
+  left: 776px;
+  font-size: var(--h3-size);
+}
+.variants-group {
+  position: absolute;
+  top: 0;
+  left: 59px;
+  background-color: var(--t2);
+  width: 1610px;
+  height: 845px;
+  overflow: hidden;
+}
+.image-4-icon {
+  position: absolute;
+  top: 430px;
+  left: 800px;
+  width: 159px;
+  height: 129px;
+  object-fit: cover;
+}
+.step-3 {
+  width: 100%;
+  position: relative;
+  background-color: var(--t2);
+  border: 1px solid var(--text);
+  box-sizing: border-box;
+  height: 1117px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-27xl);
+  color: var(--primary-color);
+  font-family: var(--font-poppins);
+}
