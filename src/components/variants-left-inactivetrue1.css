@@ -1,0 +1,21 @@
+.variantsleftinactivetrue-inner {
+  width: 32px;
+  position: relative;
+  height: 32px;
+}
+.variantsleftinactivetrue-child1 {
+  flex: 1;
+  position: relative;
+  background-color: var(--colour-grey-100);
+  height: 2px;
+}
+.variantsleftinactivetrue1 {
+  position: absolute;
+  top: 86px;
+  left: 741px;
+  width: 112px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}

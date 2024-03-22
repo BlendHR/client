@@ -1,0 +1,61 @@
+.company25 {
+  width: 224px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  flex-shrink: 0;
+}
+.tab-child199 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 224px;
+  height: 40px;
+}
+.account-group-icon26 {
+  position: absolute;
+  top: 8px;
+  left: 13px;
+  width: 30px;
+  height: 25px;
+  overflow: hidden;
+}
+.team25 {
+  position: absolute;
+  top: 8px;
+  left: 68px;
+  font-size: var(--heading-s-size);
+  font-family: var(--text-s-regular);
+  color: var(--t2);
+  text-align: left;
+  display: inline-block;
+  width: 120px;
+}
+.tab179 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  width: 224px;
+  position: relative;
+  height: 40px;
+}
+.company-parent23 {
+  position: absolute;
+  top: 694px;
+  left: 10px;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #000;
+  width: 244px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-xl);
+  box-sizing: border-box;
+  gap: var(--gap-12xl);
+  text-align: left;
+  font-size: var(--heading-s-size);
+  color: var(--fadetext);
+  font-family: var(--text-s-regular);
+}
