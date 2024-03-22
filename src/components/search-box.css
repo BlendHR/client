@@ -1,0 +1,31 @@
+.search-icon {
+  width: 24px;
+  position: relative;
+  height: 25px;
+  object-fit: cover;
+}
+.search-your-team {
+  width: 469px;
+  position: relative;
+  line-height: 20px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.search-box {
+  border-radius: var(--br-xs);
+  background-color: var(--t2);
+  border: 1px solid var(--t1);
+  box-sizing: border-box;
+  height: 60px;
+  overflow: hidden;
+  display: none;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-5xl) 0 var(--padding-5xl) var(--padding-5xl);
+  gap: var(--gap-3xs);
+  text-align: left;
+  font-size: var(--heading-s-size);
+  color: var(--fadetext);
+  font-family: var(--text-s-regular);
+}
