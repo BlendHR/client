@@ -2,9 +2,12 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { ThemeProvider } from 'react-bootstrap';
 
 import App from './App.jsx'
 import './global.css'
+
+import "./custom-bootstrap.scss";
 
 import Root from './pages/Root.jsx';
 
@@ -14,7 +17,7 @@ import UserList from './components/UserList.jsx';
 import InviteLinkForm from './components/InviteLinkForm.jsx';
 import SignupForm from './pages/SignupForm.jsx';
 import EmailVerification from './pages/EmailVerification.jsx';
-
+import Jobs from './pages/Jobs.jsx';
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -49,8 +52,13 @@ const router = createBrowserRouter([
         element: <div>Dahhboard</div>,
         errorElement: <ErrorPage />,
       },
+      {
+        path: "/jobs",
+        element: <Jobs />,
+      },
     ]
   },
+  
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
