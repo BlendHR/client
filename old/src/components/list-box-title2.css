@@ -1,0 +1,14 @@
+.role-type {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 500;
+}
+.listbox-title2 {
+  width: 95px;
+  height: 20px;
+  text-align: left;
+  font-size: var(--h3-size);
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-montserrat);
+}

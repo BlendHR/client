@@ -1,0 +1,41 @@
+.burhanuddin-ezzi {
+  position: relative;
+  line-height: 16px;
+}
+.cross-icon-child,
+.cross-icon1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+}
+.cross-icon1 {
+  top: 0.2px;
+  left: 0.4px;
+  width: 9.2px;
+  height: 9.2px;
+}
+.cross-icon {
+  width: 10px;
+  position: relative;
+  height: 10px;
+}
+.tag {
+  border-radius: var(--br-9xs);
+  background-color: var(--bg);
+  border: 2px solid var(--page-background);
+  box-sizing: border-box;
+  height: 32px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-5xs) var(--padding-xs);
+  gap: var(--gap-9xs);
+  text-align: left;
+  font-size: var(--heading-s-size);
+  color: var(--text);
+  font-family: var(--text-s-regular);
+}

@@ -1,0 +1,10 @@
+#navbar{
+    top: 0;
+    z-index: 1;
+    overflow: hidden;
+    /* start from 160px */
+    position: fixed;
+    width: auto;
+    left:160px;
+    right: 0;
+}
