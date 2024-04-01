@@ -1,0 +1,13 @@
+.card{
+    padding: 0;
+    text-align: left;
+    max-width: 300px;
+    /* margin: 5px; */
+}
+
+.card-img{
+    width: 180px;
+    height: 140px;
+    object-fit: cover;
+
+}

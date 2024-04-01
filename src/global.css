@@ -73,7 +73,7 @@
     line-height: 1.1;
   }
   
-  
+
   @media (prefers-color-scheme: light) {
     :root {
       color: #213547;
@@ -87,3 +87,26 @@
     } */
   }
   
+  .left-justify {
+    text-align: left;
+  }
+
+  .right-justify {
+    text-align: right;
+  }
+  
+  .my-btn{
+    text-align: center;
+    width:fit-content;
+  }
+
+  h1{
+    position: absolute;
+    text-align: center;
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 2em;
+    top:75px;
+    left: 200px;
+}
+
