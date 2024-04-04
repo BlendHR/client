@@ -1,0 +1,24 @@
+.context-menu-color-picker-ch,
+.context-menu-color-picker-ch1 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--br-9xs);
+}
+.context-menu-color-picker-ch {
+  background-color: var(--oc-gray-9);
+}
+.context-menu-color-picker-ch1 {
+  border: 1px solid var(--oc-gray-9);
+  box-sizing: border-box;
+  opacity: 0.7;
+  mix-blend-mode: multiply;
+}
+.statedefault1 {
+  width: 24px;
+  height: 24px;
+}

@@ -1,0 +1,134 @@
+.group-child79 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-sm);
+  background-color: var(--t2);
+  width: 325px;
+  height: 141px;
+}
+.group-child80 {
+  position: absolute;
+  top: 90px;
+  left: -0.5px;
+  box-shadow: 0 4px 4px rgba(86, 86, 86, 0.5);
+  border-top: 1px solid var(--color-gray-300);
+  box-sizing: border-box;
+  width: 326px;
+  height: 1px;
+}
+.group-child81 {
+  position: absolute;
+  top: 13px;
+  left: 15px;
+  width: 58px;
+  height: 58px;
+}
+.applied-on-2nd21,
+.ayesha-masroor1 {
+  position: absolute;
+  top: 20px;
+  left: 94px;
+  line-height: 135.5%;
+  display: flex;
+  align-items: center;
+  width: 160px;
+  height: 30px;
+}
+.applied-on-2nd21 {
+  top: 49px;
+  font-size: var(--font-size-mini);
+  width: 175px;
+  height: 20px;
+}
+.star-outline84,
+.star-outline85,
+.star-outline86,
+.star-outline87,
+.vector-icon152 {
+  position: absolute;
+  top: 103px;
+  left: 160px;
+  width: 26px;
+  height: 26px;
+  overflow: hidden;
+}
+.star-outline85,
+.star-outline86,
+.star-outline87,
+.vector-icon152 {
+  left: 62px;
+}
+.star-outline86,
+.star-outline87,
+.vector-icon152 {
+  left: 93px;
+}
+.star-outline87,
+.vector-icon152 {
+  left: 127px;
+}
+.vector-icon152 {
+  height: 3.55%;
+  width: 6.15%;
+  top: 21.28%;
+  right: 5.85%;
+  bottom: 75.18%;
+  left: 88%;
+  max-width: 100%;
+  max-height: 100%;
+}
+.email-box21,
+.vector-icon153,
+.vector-icon154 {
+  position: absolute;
+  top: 99px;
+  left: 232px;
+  width: 25px;
+  height: 25px;
+  overflow: hidden;
+}
+.vector-icon153,
+.vector-icon154 {
+  height: 14.18%;
+  width: 7.69%;
+  top: 76.6%;
+  right: 7.38%;
+  bottom: 9.22%;
+  left: 84.92%;
+  max-width: 100%;
+  max-height: 100%;
+}
+.vector-icon154 {
+  height: 13.33%;
+  top: 77.3%;
+  right: 20.92%;
+  bottom: 9.36%;
+  left: 71.38%;
+}
+.vector-icon155 {
+  width: 21.7px;
+  position: relative;
+  height: 20.6px;
+}
+.vector-parent1 {
+  position: absolute;
+  top: 108px;
+  left: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-2xs);
+}
+.rectangle-parent20 {
+  position: absolute;
+  top: 576px;
+  left: 454px;
+  width: 325px;
+  height: 141px;
+  text-align: left;
+  font-size: var(--heading-s-size);
+  color: var(--text);
+  font-family: var(--text-s-regular);
+}

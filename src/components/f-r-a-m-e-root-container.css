@@ -1,0 +1,59 @@
+.frame-child61 {
+  position: absolute;
+  top: 6px;
+  left: 1168px;
+  border-radius: 50%;
+  background-color: var(--bg);
+  width: 42px;
+  height: 41px;
+}
+.bell-badge-outline-icon8 {
+  position: absolute;
+  top: 13px;
+  left: 1176px;
+  width: 26px;
+  height: 25px;
+  overflow: hidden;
+}
+.frame-child62,
+.what-are-you8 {
+  position: absolute;
+  top: 6px;
+  left: 1097.9px;
+  width: 42px;
+  height: 41px;
+}
+.what-are-you8 {
+  top: 9px;
+  left: 872px;
+  line-height: 135.5%;
+  display: flex;
+  align-items: center;
+  width: 271px;
+  height: 36px;
+}
+.vector-icon147 {
+  position: absolute;
+  height: 35.19%;
+  width: 1.62%;
+  top: 27.78%;
+  right: 10.78%;
+  bottom: 37.04%;
+  left: 87.6%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.ellipse-parent5 {
+  position: absolute;
+  top: 1px;
+  left: 244px;
+  background-color: var(--t2);
+  width: 1266px;
+  height: 54px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-mid);
+  color: var(--color-dimgray-200);
+  font-family: var(--text-s-regular);
+}

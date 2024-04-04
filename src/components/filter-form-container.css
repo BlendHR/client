@@ -1,0 +1,52 @@
+.listboxbg6 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--br-5xs);
+  background-color: var(--t2);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--text);
+  box-sizing: border-box;
+}
+.chevron-icon6 {
+  position: absolute;
+  height: 8.33%;
+  width: 3.57%;
+  top: 46.67%;
+  right: 7.86%;
+  bottom: 45%;
+  left: 88.57%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  opacity: 0.8;
+}
+.clip-list6,
+.listbox-main6 {
+  position: absolute;
+  height: 20.76%;
+  width: 90.91%;
+  top: 9.69%;
+  right: 4.55%;
+  bottom: 69.55%;
+  left: 4.55%;
+}
+.clip-list6 {
+  height: 90.31%;
+  width: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+.listbox-component1 {
+  position: absolute;
+  top: 478px;
+  left: 648px;
+  width: 308px;
+  height: 289px;
+}

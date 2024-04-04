@@ -1,0 +1,124 @@
+.leonard-campbell2 {
+  position: absolute;
+  top: 159px;
+  left: 43px;
+  font-size: var(--font-size-7xl);
+  line-height: 135.5%;
+  font-weight: 600;
+  font-family: var(--font-poppins);
+  display: flex;
+  align-items: center;
+  width: 262px;
+  height: 72px;
+}
+.applied-jobs,
+.full-time1,
+.senior-product-designer1 {
+  position: absolute;
+  display: inline-block;
+  left: -21px;
+}
+.applied-jobs {
+  top: 268px;
+  width: 165px;
+  height: 26px;
+}
+.senior-product-designer1 {
+  top: 0;
+  font-weight: 600;
+  width: 257px;
+  height: 19px;
+}
+.full-time1 {
+  top: 33px;
+  white-space: pre-wrap;
+  width: 237px;
+  height: 23px;
+}
+.frame-wrapper29,
+.senior-product-designer-parent {
+  position: absolute;
+  top: 22px;
+  left: 32px;
+  width: 236px;
+  height: 56px;
+}
+.frame-wrapper29 {
+  top: 306px;
+  left: 23px;
+  border-radius: var(--br-6xl);
+  background-color: var(--bg);
+  width: 300px;
+  height: 100px;
+  overflow: hidden;
+  text-align: center;
+}
+.contact,
+.tab-group {
+  position: absolute;
+  display: inline-block;
+  left: 27px;
+}
+.contact {
+  top: 443px;
+  width: 232px;
+  height: 35px;
+}
+.tab-group {
+  top: 490px;
+  border-radius: var(--br-6xl);
+  background-color: var(--bg);
+  width: 300px;
+  height: 225px;
+  overflow: hidden;
+}
+.accept,
+.reject {
+  position: absolute;
+  top: 2px;
+  left: 60px;
+  font-size: var(--heading-s-size);
+  font-weight: 600;
+  font-family: var(--text-s-regular);
+  color: var(--t2);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 164px;
+  height: 48px;
+}
+.accept-wrapper,
+.reject-wrapper {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  position: absolute;
+  border-radius: var(--br-6xl);
+  width: 283px;
+  height: 50px;
+  overflow: hidden;
+}
+.accept-wrapper {
+  top: 766px;
+  left: 27px;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #000;
+}
+.reject-wrapper {
+  top: 838px;
+  left: 27px;
+  background-color: var(--o);
+}
+.leonard-campbell-parent {
+  position: absolute;
+  top: 63px;
+  left: 254px;
+  background-color: var(--t2);
+  width: 348px;
+  height: 929px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--heading-s-size);
+  color: var(--text);
+  font-family: var(--text-s-regular);
+}

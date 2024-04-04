@@ -1,0 +1,127 @@
+.candidates28,
+.design2,
+.see-details2,
+.uiux-designer {
+  position: absolute;
+  left: 27px;
+  display: flex;
+  align-items: center;
+}
+.design2 {
+  top: 9px;
+  letter-spacing: -0.02em;
+  line-height: 28px;
+  width: 153px;
+  height: 36px;
+}
+.candidates28,
+.see-details2,
+.uiux-designer {
+  font-weight: 600;
+}
+.uiux-designer {
+  top: 54px;
+  color: var(--text);
+  width: 257px;
+  height: 19px;
+}
+.candidates28,
+.see-details2 {
+  top: 98px;
+  letter-spacing: -0.02em;
+  line-height: 28px;
+  width: 153px;
+  height: 36px;
+}
+.see-details2 {
+  top: 339px;
+  left: 167px;
+}
+.frame-child57 {
+  position: absolute;
+  top: 134px;
+  left: 27px;
+  background-color: var(--bg);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 259px;
+  height: 115px;
+}
+.p4 {
+  margin: 0;
+}
+.new-txt2 {
+  line-break: anywhere;
+  width: 100%;
+}
+.new4 {
+  position: absolute;
+  top: 278px;
+  left: 210px;
+  letter-spacing: -0.02em;
+  line-height: 28px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  width: 153px;
+  height: 36px;
+}
+.frame-child58 {
+  position: absolute;
+  top: 274px;
+  left: 198px;
+  max-width: 100%;
+  overflow: hidden;
+  height: 47px;
+  object-fit: contain;
+}
+.frame-child59 {
+  position: absolute;
+  top: 273px;
+  left: 51px;
+  border-right: 2px solid var(--text);
+  box-sizing: border-box;
+  width: 2px;
+  height: 49px;
+}
+.old4 {
+  position: absolute;
+  top: 279px;
+  left: 70px;
+  letter-spacing: -0.02em;
+  line-height: 28px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  width: 153px;
+  height: 36px;
+}
+.frame-child60 {
+  position: absolute;
+  top: 329px;
+  left: 22px;
+  width: 264px;
+  height: 2px;
+  object-fit: contain;
+}
+.chartpie-icon2 {
+  position: absolute;
+  top: calc(50% - 47px);
+  right: 104px;
+  width: 104px;
+  height: 97.6px;
+}
+.design-group {
+  position: absolute;
+  top: 168px;
+  left: 674px;
+  border-radius: var(--br-3xs);
+  background-color: var(--t2);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 313px;
+  height: 380px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--heading-s-size);
+  color: var(--neutral-80);
+  font-family: var(--text-s-regular);
+}

@@ -1,0 +1,34 @@
+.welcome-to2 {
+  font-weight: 900;
+}
+.welcome-to1, .applicant-tracking-system, .blank-line2 {
+  margin: 0;
+}
+.applicant-tracking-system {
+  color: var(--o);
+}
+.blank-line2 {
+  font-weight: 600;
+}
+.welcome-to-applicant-container1 {
+  position: absolute;
+  height: 89.15%;
+  width: 91.29%;
+  top: 10.85%;
+  left: 4.35%;
+  line-height: 135.5%;
+  text-transform: capitalize;
+  display: inline-block;
+}
+.welcome-to-applicant-tracking-wrapper {
+  position: absolute;
+  top: 37px;
+  left: 46px;
+  width: 735px;
+  height: 129px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-17xl);
+  color: var(--t2);
+  font-family: var(--text-s-regular);
+}
