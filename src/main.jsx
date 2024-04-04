@@ -18,6 +18,8 @@ import InviteLinkForm from './components/InviteLinkForm.jsx';
 import SignupForm from './pages/SignupForm.jsx';
 import EmailVerification from './pages/EmailVerification.jsx';
 import Jobs from './pages/Jobs.jsx';
+
+import JobPostForm from './components/jobPostFomr.jsx';
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -56,6 +58,11 @@ const router = createBrowserRouter([
         path: "/jobs",
         element: <Jobs />,
       },
+      {
+        path: "/post-job",
+        element: <JobPostForm />,
+      },
+      
     ]
   },
   
