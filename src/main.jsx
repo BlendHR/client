@@ -18,8 +18,9 @@ import InviteLinkForm from './components/InviteLinkForm.jsx';
 import SignupForm from './pages/SignupForm.jsx';
 import EmailVerification from './pages/EmailVerification.jsx';
 import Jobs from './pages/Jobs.jsx';
+import JobPostForm from './components/JobPostForm.jsx';
+import Candidates from './pages/Candidates.jsx';
 
-import JobPostForm from './components/jobPostFomr.jsx';
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <div>Dahhboard</div>,
+        element: <div>Dashboard</div>,
         errorElement: <ErrorPage />,
       },
       {
@@ -62,7 +63,10 @@ const router = createBrowserRouter([
         path: "/post-job",
         element: <JobPostForm />,
       },
-      
+      {
+        path: "/candidates",
+        element: <Candidates />,
+      },
     ]
   },
   
