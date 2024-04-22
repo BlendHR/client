@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NavBar from "../components/NavBar";
+import NavBar from "../../components/NavBar";
 import { Outlet } from "react-router-dom";
-import SideBar from "../components/SideBar";
+import SideBar from "../../components/SideBar";
 import { Container, Row, Col } from "react-bootstrap";
 import axios from 'axios';
 

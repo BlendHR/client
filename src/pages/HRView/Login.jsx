@@ -10,21 +10,20 @@ function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleLogin = async () => {
+  const handleLogin = async (event) => {
+
+    event.preventDefault();
+
     try {
-      // const response = await axios.post('/api/login', { email, password });
-      // // Assuming the backend returns a token upon successful login
-      // const token = response.data.token;
-      // // Store the token in local storage or session storage for future authenticated requests
-      // localStorage.setItem('blendhr-ats-auth-token', token);
-      // // Redirect to the home page or dashboard upon successful login
-      localStorage.setItem('blendhr-ats-auth-token', 'dummy-token');
-      navigate('/');
+        const response = await axios.post('http://localhost:8000/api/accounts/login', { email, password }); // Replace with your DRF authentication endpoint
+
+        // Save the auth token in local storage
+        localStorage.setItem('authToken', response.data.token);
+        console.log('Login successful');
     } catch (error) {
-      // Handle login error
-      setError(error.response.data.message);
+        console.error('There was an error!', error);
     }
-  };
+};
 
   const handleSignup = () => {
     // Redirect to the signup page

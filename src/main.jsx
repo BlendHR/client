@@ -9,19 +9,28 @@ import './global.css'
 
 import "./custom-bootstrap.scss";
 
-import Root from './pages/Root.jsx';
+import Root from './pages/HRView/Root.jsx';
 
-import Login from './pages/Login.jsx';
-import ErrorPage from './pages/ErrorPage.jsx';
+import Login from './pages/HRView/Login.jsx';
+import ErrorPage from './pages/HRView/ErrorPage.jsx';
 import UserList from './components/UserList.jsx';
 import InviteLinkForm from './components/InviteLinkForm.jsx';
-import SignupForm from './pages/SignupForm.jsx';
-import EmailVerification from './pages/EmailVerification.jsx';
-import Jobs from './pages/Jobs.jsx';
+import SignupForm from './pages/HRView/SignupForm.jsx';
+import EmailVerification from './pages/HRView/EmailVerification.jsx';
+import Jobs from './pages/HRView/Jobs.jsx';
 import JobPostForm from './components/JobPostForm.jsx';
-import Candidates from './pages/Candidates.jsx';
+import Candidates from './pages/HRView/Candidates.jsx';
+//import candidate login 
+import LoginCandidate from './pages/CandidateView/Login.jsx';
+import JobView from './pages/CandidateView/JobView.jsx';
+import CreateJob from './pages/HRView/CreateJob.jsx';
 
 const router = createBrowserRouter([
+  {
+    path: "/candidate-login",
+    element: <LoginCandidate/>,
+    errorElement: <ErrorPage />,
+  },
   {
     path: "/login",
     element: <Login/>,
@@ -39,8 +48,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />,
+    element: <Login />,
     children: [ // Now the sidebar will act as a layout for all of the below pages. I think this is more optimized
       {
         path: "/team",
@@ -67,6 +75,12 @@ const router = createBrowserRouter([
         path: "/candidates",
         element: <Candidates />,
       },
+      {
+        path: "/",
+        element: <JobView />,
+        errorElement: <ErrorPage />,
+      },
+      
     ]
   },
   

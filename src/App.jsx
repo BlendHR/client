@@ -12,12 +12,15 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 // import components
 import SideBar from './components/SideBar'
-import Login from './pages/Login'
-
+import CandidateLogin from './pages/CandidateView/Login'
+import Nav from './components/nav-bar'
+import FrontScreen from './pages/ai-gen/front-screen';
+import ApplyJob from './pages/CandidateView/ApplyJob';
+import JobView from './pages/CandidateView/JobView';
 // App.js
 function App() {
   return (
-      <Login></Login>
+    <></>
   );
 }
 

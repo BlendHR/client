@@ -10,10 +10,8 @@ function SignupForm() {
     firstName: '',
     lastName: '',
     email: '',
-    organizationName: '',
-    domainName: '',
-    location: '',
-  });
+    password: '',
+      });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,10 +22,11 @@ function SignupForm() {
     // Prevent the default submit event
     e.preventDefault();
     try {
-    //   const response = await axios.post('/api/signup', formData);
-    //   // Assuming the backend returns a success message or redirects to the verification page
-    //   navigate('/verify-email');
+    const response = await axios.post('http://localhost:8000/api/accounts/signup/', formData);
+    console.log(response);
+    //   // Assuming the backend returns a success message or redirects to the verification pag
     //   // Change this to above
+  
         navigate('/verify-email');
     } catch (error) {
       console.error('Signup error:', error);
@@ -66,31 +65,12 @@ function SignupForm() {
           required
         />
       </Form.Group>
-      <Form.Group controlId="organizationName">
-        <Form.Label>Organization Name</Form.Label>
+      <Form.Group controlId="password">
+        <Form.Label>Password</Form.Label>
         <Form.Control
-          type="text"
-          name="organizationName"
-          value={formData.organizationName}
-          onChange={handleChange}
-          required
-        />
-      </Form.Group>
-      <Form.Group controlId="domainName">
-        <Form.Label>Domain Name (Optional)</Form.Label>
-        <Form.Control
-          type="text"
-          name="domainName"
-          value={formData.domainName}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      <Form.Group controlId="location">
-        <Form.Label>Location</Form.Label>
-        <Form.Control
-          type="text"
-          name="location"
-          value={formData.location}
+          type="password"
+          name="password"
+          value={formData.password}
           onChange={handleChange}
           required
         />

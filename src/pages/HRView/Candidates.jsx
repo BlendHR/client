@@ -1,5 +1,5 @@
 import React from 'react';
-import CandidateList from '../components/CandidateList';
+import CandidateList from '../../components/CandidateList';
 import './Candidates.css';
 
 import Form from 'react-bootstrap/Form';
