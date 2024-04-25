@@ -1,13 +1,38 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import "./NavBar.css"
 
 import react_svg from '../assets/react.svg';
 
+// fetch user from api/accounts/user
+
+
+
 function NavBar() {
+
+
+//   const [user, setUser] = useState('');
+//   const fetchUser = async () => {
+//   try {
+//     const response = await axios.get('http://localhost:8000/api/accounts/users/me/', {
+//       headers: {
+//         'Authorization': `Token ${localStorage.getItem('token')}` // replace with the way you store your token
+//       }
+//     });
+//     setUser(response.data);
+//   } catch (error) {
+//     console.error('Failed to fetch user', error);
+//   }
+// };
+
+// useEffect(() => {
+//   fetchUser();
+// }, []); // add an empty dependency array to run the effect only once when the component mounts
   return (
     <div id="navbar">
       <Navbar bg="dark" data-bs-theme="dark">

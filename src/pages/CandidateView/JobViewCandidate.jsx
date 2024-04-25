@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card, Button } from 'react-bootstrap';
+import { string } from 'yup';
 
 const JobView = () => {
     const [job, setJob] = useState(null);
-
+    const { jobId } = useParams();
     useEffect(() => {
-        axios.get('http://localhost:8000/jobs/1') // Replace with your DRF API endpoint
-            .then(response => {
+        const fetchJob = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8000/api/jobs/${jobId}/`);
                 setJob(response.data);
-            })
-            .catch(error => {
-                console.error('There was an error!', error);
-            });
-    }, []);
+            } catch (error) {
+                console.error('Failed to fetch job', error);
+            }
+        };
+
+        fetchJob();
+    }, [jobId]);
 
     if (!job) {
         return <div>Loading...</div>;
@@ -35,7 +39,7 @@ const JobView = () => {
                 <Card.Text>
                     Work type: {job.work_type}
                 </Card.Text>
-                <Button variant="primary">Apply</Button>
+                <Button link={`/apply-job/${job.job_id}`} variant="primary">Apply</Button>
             </Card.Body>
         </Card>
     );

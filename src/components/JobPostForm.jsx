@@ -1,39 +1,33 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import axios from 'axios'; // Import Axios
+import { Form, Button, Row, Col } from 'react-bootstrap';
+import axios from 'axios';
 
 function JobPostForm() {
-  // Define state variables
   const [jobTitle, setJobTitle] = useState('');
-  const [city, setCity] = useState('');
-  const [country, setCountry] = useState('');
-  const [timezone, setTimezone] = useState('');
+  const [overview, setOverview] = useState('');
+  const [responsibilities, setResponsibilities] = useState('');
+  const [qualifications, setQualifications] = useState('');
+  const [workSite, setWorkSite] = useState('');
+  const [workType, setWorkType] = useState('');
+  const [isOpen, setIsOpen] = useState(true);
 
-  // Function to handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      // Send POST request to DRF API endpoint
-      await axios.post('your-api-endpoint-url', {
-        job_title: jobTitle,
-        city,
-        country,
-        timezone
-      });
-      // Reset form fields after successful submission
-      setJobTitle('');
-      setCity('');
-      setCountry('');
-      setTimezone('');
-      alert('Form submitted successfully!');
-    } catch (error) {
-      // Handle error
-      console.error('Error submitting form:', error);
-      alert('Failed to submit form. Please try again later.');
-    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const jobData = {
+      jobTitle,
+      overview,
+      responsibilities,
+      qualifications,
+      workSite,
+      workType,
+      isOpen,
+      postedon: new Date().toISOString(),
+
+
+    };
+
+    console.log(jobData);
   };
 
   return (
@@ -50,42 +44,71 @@ function JobPostForm() {
           />
         </Form.Group>
 
-        <Form.Group as={Col} controlId="formGridCity">
-          <Form.Label>City</Form.Label>
+        <Form.Group as={Col} controlId="formGridWorkSite">
+          <Form.Label>Work Site</Form.Label>
           <Form.Control 
             type="text" 
-            placeholder="Enter city" 
-            value={city} 
-            onChange={(e) => setCity(e.target.value)} 
+            placeholder="Enter work site" 
+            value={workSite} 
+            onChange={(e) => setWorkSite(e.target.value)} 
             required 
           />
         </Form.Group>
       </Row>
 
       <Row className="mb-3">
-        <Form.Group as={Col} controlId="formGridCountry">
-          <Form.Label>Country</Form.Label>
+        <Form.Group as={Col} controlId="formGridOverview">
+          <Form.Label>Overview</Form.Label>
           <Form.Control 
-            type="text" 
-            placeholder="Enter country" 
-            value={country} 
-            onChange={(e) => setCountry(e.target.value)} 
-            required 
+            as="textarea" 
+            placeholder="Enter overview" 
+            value={overview} 
+            onChange={(e) => setOverview(e.target.value)} 
           />
         </Form.Group>
 
-        <Form.Group as={Col} controlId="formGridTimezone">
-          <Form.Label>Timezone</Form.Label>
+        <Form.Group as={Col} controlId="formGridResponsibilities">
+          <Form.Label>Responsibilities</Form.Label>
+          <Form.Control 
+            as="textarea" 
+            placeholder="Enter responsibilities" 
+            value={responsibilities} 
+            onChange={(e) => setResponsibilities(e.target.value)} 
+          />
+        </Form.Group>
+      </Row>
+
+      <Row className="mb-3">
+        <Form.Group as={Col} controlId="formGridQualifications">
+          <Form.Label>Qualifications</Form.Label>
+          <Form.Control 
+            as="textarea" 
+            placeholder="Enter qualifications" 
+            value={qualifications} 
+            onChange={(e) => setQualifications(e.target.value)} 
+          />
+        </Form.Group>
+
+        <Form.Group as={Col} controlId="formGridWorkType">
+          <Form.Label>Work Type</Form.Label>
           <Form.Control 
             type="text" 
-            placeholder="Enter timezone" 
-            value={timezone} 
-            onChange={(e) => setTimezone(e.target.value)} 
+            placeholder="Enter work type" 
+            value={workType} 
+            onChange={(e) => setWorkType(e.target.value)} 
             required 
           />
         </Form.Group>
       </Row>
 
+      <Form.Group className="mb-3" controlId="formGridIsOpen">
+        <Form.Check 
+          type="checkbox" 
+          label="Is Open" 
+          checked={isOpen} 
+          onChange={(e) => setIsOpen(e.target.checked)} 
+        />
+      </Form.Group> 
       <Button variant="primary" type="submit">
         Submit
       </Button>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import instance from '../../axios';
 
 function Login() {
   const navigate = useNavigate();
@@ -10,21 +10,32 @@ function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleLogin = async (event) => {
+  console.log('email:', email);
+  console.log('password:', password);
 
-    event.preventDefault();
-
-    try {
-        const response = await axios.post('http://localhost:8000/api/accounts/login', { email, password }); // Replace with your DRF authentication endpoint
-
-        // Save the auth token in local storage
-        localStorage.setItem('authToken', response.data.token);
-        console.log('Login successful');
-    } catch (error) {
-        console.error('There was an error!', error);
-    }
-};
-
+  // const handleLogin = async () => {
+  //   try {
+  //     const response = await instance.post('/accounts/login/', {
+  //       email,
+  //       password,
+  //     });
+  
+  //     console.log(response);
+  //     console.log(response.data);
+  
+  //     // extract the token from the response
+  //     const token = response.data.token; // replace 'key' with the actual property name for the token
+  //     console.log('token:', token);
+  //     // store the token in local storage
+  //     localStorage.setItem('token', token);
+  
+  //     // navigate to the home page
+  //     navigate('/');
+  //   } catch (error) {
+  //     console.error('Login error:', error);
+  //     setError('Invalid email or password');
+  //   }
+  // };
   const handleSignup = () => {
     // Redirect to the signup page
     navigate('/signup');

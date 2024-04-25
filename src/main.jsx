@@ -22,11 +22,14 @@ import JobPostForm from './components/JobPostForm.jsx';
 import Candidates from './pages/HRView/Candidates.jsx';
 //import candidate login 
 import LoginCandidate from './pages/CandidateView/Login.jsx';
-import JobView from './pages/CandidateView/JobView.jsx';
+import JobView from './pages/CandidateView/JobViewCandidate.jsx';
 import CreateJob from './pages/HRView/CreateJob.jsx';
+import JobList from './pages/HRView/JobList.jsx';
+import ApplyJob from './pages/CandidateView/ApplyJob.jsx';
 
 const router = createBrowserRouter([
   {
+
     path: "/candidate-login",
     element: <LoginCandidate/>,
     errorElement: <ErrorPage />,
@@ -47,8 +50,14 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
+    path: "/apply-job/:jobId",
+    element: <ApplyJob />,
+    errorElement: <ErrorPage />,
+  }
+,
+  {
     path: "/",
-    element: <Login />,
+    element: <Root />,
     children: [ // Now the sidebar will act as a layout for all of the below pages. I think this is more optimized
       {
         path: "/team",
@@ -65,7 +74,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/jobs",
-        element: <Jobs />,
+        element: <JobList />,
       },
       {
         path: "/post-job",
@@ -76,7 +85,7 @@ const router = createBrowserRouter([
         element: <Candidates />,
       },
       {
-        path: "/",
+        path: "/job-view",
         element: <JobView />,
         errorElement: <ErrorPage />,
       },
