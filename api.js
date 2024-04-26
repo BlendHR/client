@@ -17,7 +17,7 @@ const SIGNUP_URL = "/api/accounts/signup/";
 const VERIFY_EMAIL_URL = "/api/accounts/signup/verify/";
 
 // get user info
-const USER_INFO_URL = "/api/accounts/users/me";
+const USER_INFO_URL = "/api/user_detail";
 // add more
 
 // functions

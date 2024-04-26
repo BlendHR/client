@@ -6,9 +6,6 @@ import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 
 
-
-
-
 function JobFilter() {
   return (
     <Form.Select aria-label="job">
