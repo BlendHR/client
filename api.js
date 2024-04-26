@@ -61,17 +61,17 @@ export const async_verify_email = async (code) => {
 }
 
 // not async since we cannot load the page without user info
-export const get_user_info = () => {
+export const get_user_info = async () => {
     try {
         // at AUTHORIZATION token in header
-        const response = api.get(USER_INFO_URL, {
+        const response = await api.get(USER_INFO_URL, {
             headers: {
                 Authorization: `Token ${localStorage.getItem("token")}`,
             }
         });
-        return response;
+        return response.data;
     } catch (error) {
         console.error("Error in api.js::get_user_info:", error);
-        return error.response;
+        return null;
     }
 }

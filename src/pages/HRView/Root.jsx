@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from "../../components/NavBar";
 import { Outlet } from "react-router-dom";
@@ -10,34 +10,31 @@ import { get_user_info } from '../../../api';
 
 import './Root.css';
 export default function Root() {
-  // const navigate = useNavigate();
-  // let user_info = {first_name: '', last_name: ''};
+  const navigate = useNavigate();
+  const [user_info, setUser_info] = useState(null);
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem('token');
-  //   if (!token) {
-  //     navigate('/login');
-  //   } else {
-  //     // axios.defaults.headers.common['Authorization'] = `Token ${token}`;
-  //     get_user_info()
-  //       .then((response) => {
-  //         if (response.status === 200) {
-  //           user_info = response.data;
-  //         } else {
-  //           navigate('/login');
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error in Root.jsx::useEffect:", error);
-  //         navigate('/login');
-  //       });
-  //   }
-  // }
-  // , [navigate]);
-  
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      try {
+        const userInfo = await get_user_info();
+        setUser_info(userInfo);
+      } catch (error) {
+        navigate('/login');
+      }
+    };
+
+    fetchUserInfo();
+  }, [navigate]);
+
+  if (!user_info) {
+    return <div>
+      Loading...
+    </div>; // You might want to render a loading spinner or message here
+  }
+  console.log(user_info); // <console>
   return (
     <>
-      {/* <NavBar name={user_info.first_name + user_info.last_name} /> */}
+      <NavBar name={user_info.email} /> 
       <div id="main">
         <Outlet />
       </div>
