@@ -4,13 +4,14 @@ import { Alert } from 'react-bootstrap';
 
 import { async_verify_email } from '../../../api';
 
+
 function EmailVerification() {
     const navigate = useNavigate();
     const location = useLocation();
     const [alert_variant, setAlertVariant] = useState('success');
     const [alert_message, setAlertMessage] = useState('Verifying email...');
 
-    useEffect( async () => {
+    const handle = async () => {
         const urlParams = new URLSearchParams(location.search);
         const code = urlParams.get('code');
         const response = await async_verify_email(code);
@@ -19,7 +20,7 @@ function EmailVerification() {
                 setAlertVariant('success');
                 setAlertMessage('Email verified');
                 // wait for 2 seconds before redirecting to login
-                setTimeout(() => navigate('/login'), 2000);
+                navigate('/login')
             }else{
                 setAlertVariant('danger');
                 setAlertMessage('Email verification failed');
@@ -28,9 +29,8 @@ function EmailVerification() {
             setAlertVariant('danger');
             setAlertMessage('Email verification failed');
         }
-    });
-
-
+    }
+    handle();
     return (
         <div>
             <Alert variant={alert_variant}>{alert_message}</Alert>

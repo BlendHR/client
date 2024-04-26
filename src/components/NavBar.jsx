@@ -12,32 +12,8 @@ import "./NavBar.css"
 import react_svg from '../assets/react.svg';
 import { UserContext } from '../UserContext';
 
-// fetch user from api/accounts/user
+function NavBar(props) {
 
-
-
-function NavBar() {
-
-  const user = useContext(UserContext);
-
-
-//   const [user, setUser] = useState('');
-//   const fetchUser = async () => {
-//   try {
-//     const response = await axios.get('http://localhost:8000/api/accounts/users/me/', {
-//       headers: {
-//         'Authorization': `Token ${localStorage.getItem('token')}` // replace with the way you store your token
-//       }
-//     });
-//     setUser(response.data);
-//   } catch (error) {
-//     console.error('Failed to fetch user', error);
-//   }
-// };
-
-// useEffect(() => {
-//   fetchUser();
-// }, []); // add an empty dependency array to run the effect only once when the component mounts
   return (
     <div id="navbar">
       <Navbar bg="dark" data-bs-theme="dark">
@@ -56,7 +32,7 @@ function NavBar() {
               <img src={react_svg} alt="bell" style={{ marginRight: '24px' }}/>
             </Nav.Link>
             <Navbar.Text>
-              Signed in as: <a href="\user">{user ? user.first_name : 'Guest'}</a>
+              Signed in as: <a href="\user">{ props.name }</a>
             </Navbar.Text>
           </Navbar.Collapse>
 

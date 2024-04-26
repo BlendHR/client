@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from "../../components/NavBar";
 import { Outlet } from "react-router-dom";
@@ -6,37 +6,39 @@ import SideBar from "../../components/SideBar";
 import { Container, Row, Col } from "react-bootstrap";
 import axios from 'axios';
 
+import { get_user_info } from '../../../api';
+
 import './Root.css';
 export default function Root() {
   const navigate = useNavigate();
+  const [user_info, setUser_info] = useState(null);
 
-  // useEffect(() => {
-  //   const authToken = localStorage.getItem('blendhr-ats-auth-token');
-  //   if (authToken) {
-  //     // If authentication token exists, verify it with the backend
-  //     axios.post('/api/verify-token', { authToken })
-  //       .then(response => {
-  //         // If token verification is successful, navigate to the home page
-  //         navigate('/dashboard');
-  //       })
-  //       .catch(error => {
-  //         // If token verification fails, navigate to the login page
-  //         // navigate('/login');
-  //         navigate('/dashboard'); // Just for now until we haven't connected the server
-  //       });
-  //   } else {
-  //     // If no authentication token exists, navigate to the login page
-  //     navigate('/login');
-  //   }
-  // }, []); // Empty dependency array ensures this effect runs only once when the component mounts
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      try {
+        const userInfo = await get_user_info();
+        setUser_info(userInfo);
+      } catch (error) {
+        navigate('/login');
+      }
+    };
 
+    fetchUserInfo();
+  }, [navigate]);
+
+  if (!user_info) {
+    return <div>
+      Loading...
+    </div>; // You might want to render a loading spinner or message here
+  }
+  console.log(user_info); // <console>
   return (
     <>
-      <NavBar />
+      <NavBar name={user_info.email} /> 
       <div id="main">
         <Outlet />
       </div>
-      <SideBar />
+      <SideBar/>
     </>
   );
 }
