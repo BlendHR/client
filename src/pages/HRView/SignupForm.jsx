@@ -1,18 +1,17 @@
 // SignupForm.js
 import React, { useState } from 'react';
-import instance from '../../axios';
 import {
-  InputGroup,
+  Alert,
   Col,
   Button,
   Row,
   Container,
-  Card,
   Form,
 } from "react-bootstrap";
 
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+
+import { async_signup } from '../../../api';
 
 function SignupForm() {
   const navigate = useNavigate();
@@ -21,102 +20,120 @@ function SignupForm() {
     lastName: '',
     email: '',
     password: '',
-      });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+    organization: '',
+    city: '',
+    country: '',
+  });
+  const [is_loading, setIsLoading] = useState(false);
+  const [show_alert, setShowAlert] = useState(false);
+  const [alert_variant, setAlertVariant] = useState('success');
+  const [alert_message, setAlertMessage] = useState('');
 
   const handleSubmit = async (e) => {
     // Prevent the default submit event
     e.preventDefault();
-    try {
-      
-    const response = await instance.post('/accounts/signup/', formData);
-    console.log(response);
-    console.log(response.data);
-        navigate('/verify-email');
-    } catch (error) {
-      console.error('Signup error:', error);
+    setIsLoading(true);
+    const response = await async_signup(formData);
+    if (response) {
+      if (response.status === 201) {
+        // Redirect to the login page
+        setAlertMessage('Signup successful!\nWe\'ve sent you an email to verify your account.');
+        setAlertVariant('success');
+      } else {
+        setAlertMessage('Signup failed: invalid data');
+        setAlertVariant('danger');
+        // Handle error
+        console.error("Error in signup:", response);
+      }
+    } else {
+      setAlertMessage('Signup failed: server error');
+      setAlertVariant('danger');
+      // Handle error
+      console.error("Error in signup: response is null");
     }
-  };
+    setIsLoading(false);
+    setShowAlert(true);
+  }
 
   return (
-<Container >
-  <Row className="vh-100 d-flex justify-content-center align-items-center">
-    <Col md={10} lg={8} xs={12}>
-      <div className="border border-3 border-primary" ></div>
-      <Card className="shadow" style={{ backgroundColor: 'white', padding: '5px', width: '200%' }} >
-        <Card.Body>
-          <div className="mb-3 mt-4">
-            <h2 className="fw-bold mb-2 text-uppercase">Welcome!!!</h2>
-            <p className=" mb-5">Please enter your details to sign up!</p>
-            <Form onSubmit={handleSubmit} className="mb-3">
-              <Row className="mb-3" style={{width: '100%'}}>
-                <Form.Group as={Col} controlId="firstName" className="mb-3">
-                  <Form.Label>First Name</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="firstName"
+    // center on page + left align content + margin between componenets + autofit content
+    <div>
+      {show_alert ? (
+        <Alert variant={alert_variant} onClose={() => setShowAlert(false)} dismissible>
+          <Alert.Heading>{alert_message}</Alert.Heading>
+        </Alert>
+        ) : null
+      }
+      <Container className="shadow p-3 mb-5 bg-body rounded" >
+              <Form>
+              <Row className="mb-3">
+                  <Form.Group as={Col} controlId="formGridFName">
+                    <Form.Label>First Name</Form.Label>
+                    <Form.Control 
                     value={formData.firstName}
-                    onChange={handleChange}
-                    required
-                  />
-                </Form.Group>
-                <Form.Group as={Col} controlId="lastName" className="mb-3">
-                  <Form.Label>Last Name</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="lastName"
+                    onChange={(e) => setFormData({...formData, firstName: e.target.value})}
+                    />
+                  </Form.Group>
+
+                  <Form.Group as={Col} controlId="formGridLName">
+                    <Form.Label>Last Name</Form.Label>
+                    <Form.Control 
                     value={formData.lastName}
-                    onChange={handleChange}
-                    required
-                  />
-                </Form.Group>
-              </Row>
-              <Row className="mb-5" style={{width: '100%'}}>
-                <Form.Group as={Col} controlId="email" className="mb-3">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control
-                    type="email"
-                    name="email"
+                    onChange={(e) => setFormData({...formData, lastName: e.target.value})}
+                    />
+                  </Form.Group>
+                </Row>
+
+                <Row className="mb-3">
+                  <Form.Group as={Col} controlId="formGridEmail">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="email" placeholder="Enter email" 
                     value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
-                </Form.Group>
-                <Form.Group as={Col} controlId="password" className="mb-3">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control
-                    type="password"
-                    name="password"
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    />
+                  </Form.Group>
+
+                  <Form.Group as={Col} controlId="formGridPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password" 
                     value={formData.password}
-                    onChange={handleChange}
-                    required
+                    onChange={(e) => setFormData({...formData, password: e.target.value})}
+                    />
+                  </Form.Group>
+                </Row>
+
+                {/* <Form.Group className="mb-3" controlId="formGridOrgName">
+                  <Form.Label>Name of Organization</Form.Label>
+                  <Form.Control placeholder="My Organization" 
+                  value={formData.organization}
+                  onChange={(e) => setFormData({...formData, organization: e.target.value})}
                   />
                 </Form.Group>
-              </Row>
-              <div className="d-grid">
-                <Button variant="primary" type="submit">
-                  Sign Up
-                </Button>
-              </div>
-            </Form>
-            <div className="mt-3">
-              <p className="mb-0  text-center">
-                Already have an account?{" "}
-                <a href="/" className="text-primary fw-bold">
-                  Sign In
-                </a>
-              </p>
-            </div>
-          </div>
-        </Card.Body>
-      </Card>
-    </Col>
-  </Row>
-</Container>
+
+                <Row className="mb-3">
+                  <Form.Group as={Col} controlId="formGridCity">
+                    <Form.Label>City</Form.Label>
+                    <Form.Control 
+                    value={formData.city}
+                    onChange={(e) => setFormData({...formData, city: e.target.value})}
+                    />
+                  </Form.Group>
+
+                  <Form.Group as={Col} controlId="formGridCountry">
+                    <Form.Label>Country</Form.Label>
+                    <Form.Control 
+                    value={formData.country}
+                    onChange={(e) => setFormData({...formData, country: e.target.value})}
+                    />
+                  </Form.Group>
+                </Row> */}
+
+                <Button className="my-btn" variant="primary" type="button" onClick={handleSubmit}>
+                  {is_loading ? 'Loading...' : 'Sign Up'}
+                </Button>{' '}
+              </Form>
+      </Container>
+    </div>
   );
 }
 

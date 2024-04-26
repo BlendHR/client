@@ -45,7 +45,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/verify-email",
+    path: "/signup/verify-email",
     element: <EmailVerification />,
     errorElement: <ErrorPage />,
   },

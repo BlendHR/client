@@ -1,40 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import axios from 'axios';
+import { Alert } from 'react-bootstrap';
+
+import { async_verify_email } from '../../../api';
 
 function EmailVerification() {
-    const [verified, setVerified] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
+    const [alert_variant, setAlertVariant] = useState('success');
+    const [alert_message, setAlertMessage] = useState('Verifying email...');
 
-    useEffect(() => {
+    useEffect( async () => {
         const urlParams = new URLSearchParams(location.search);
         const code = urlParams.get('code');
-
-        if (code) {
-            axios.get(`http://localhost:8000/api/accounts/signup/verify/?code=${code}`)
-                .then(response => {
-                    if (response.status === 200) {
-                        setVerified(true);
-                    }
-                })
-                .catch(error => {
-                    console.error('There was an error!', error);
-                });
+        const response = await async_verify_email(code);
+        if (response) {
+            if (response.status === 200) {
+                setAlertVariant('success');
+                setAlertMessage('Email verified');
+                // wait for 2 seconds before redirecting to login
+                setTimeout(() => navigate('/login'), 2000);
+            }else{
+                setAlertVariant('danger');
+                setAlertMessage('Email verification failed');
+            }
+        }else{
+            setAlertVariant('danger');
+            setAlertMessage('Email verification failed');
         }
-    }, [location, navigate]);
+    });
+
 
     return (
         <div>
-            {verified ? (
-                <>
-                    <h1>Email verified!</h1>
-                    <p>You can now login to your account.</p>
-                    <button onClick={() => navigate('/login')}>Login</button>
-                </>
-            ) : (
-                <h1>Verifying email...</h1>
-            )}
+            <Alert variant={alert_variant}>{alert_message}</Alert>
         </div>
     );
 }
