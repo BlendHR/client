@@ -26,8 +26,14 @@ import Candidates from './pages/HRView/Candidates.jsx';
 import LoginCandidate from './pages/CandidateView/Login.jsx';
 import JobView from './pages/CandidateView/JobViewCandidate.jsx';
 import CreateJob from './pages/HRView/CreateJob.jsx';
+<<<<<<< Updated upstream
 
 import JobList from './pages/HRView/JobViewHR.jsx'
+=======
+import CandidateProfile from './pages/HRView/CandidateProfile.jsx';
+
+import JobList from './pages/HRView/JobList.jsx';
+>>>>>>> Stashed changes
 import ApplyJob from './pages/CandidateView/ApplyJob.jsx';
 
 import instance from './axios.js';
@@ -66,9 +72,12 @@ fetchUserData();
 
 }, []);
 
+<<<<<<< Updated upstream
 import JobList from './pages/HRView/JobList.jsx';
 import ApplyJob from './pages/CandidateView/ApplyJob.jsx';
 
+=======
+>>>>>>> Stashed changes
 const router = createBrowserRouter([
   {
 
@@ -98,6 +107,15 @@ const router = createBrowserRouter([
   }
 ,
   {
+<<<<<<< Updated upstream
+=======
+    path: "/candidates/:id",
+    element: <CandidateProfile />,
+    errorElement: <ErrorPage />,
+  }
+,
+  {
+>>>>>>> Stashed changes
     path: "/",
     element: <Root />,
     children: [ // Now the sidebar will act as a layout for all of the below pages. I think this is more optimized
