@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
+import instance from '../axios';
+import { useContext } from 'react';
+import { UserContext } from '../UserContext';
 
 function JobPostForm() {
   const [jobTitle, setJobTitle] = useState('');
@@ -10,24 +13,34 @@ function JobPostForm() {
   const [workSite, setWorkSite] = useState('');
   const [workType, setWorkType] = useState('');
   const [isOpen, setIsOpen] = useState(true);
+  const [postedOn, setPostedOn] = useState('');
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const user = useContext(UserContext);
 
-    const jobData = {
-      jobTitle,
-      overview,
-      responsibilities,
-      qualifications,
-      workSite,
-      workType,
-      isOpen,
-      postedon: new Date().toISOString(),
+  const handleSubmit = async (e) => {
 
+    
+    e.preventDefault();
+    try {
+      const response = await instance.post('jobs/', {
+        creater_id: user.id,
+        org_id: 'Habib University',
+        salary:1,
+        job_title: jobTitle,
+        overview: overview,
+        responsibilities: responsibilities,
+        qualifications: qualifications,
+        work_site: workSite,
+        work_type: workType,
+        is_open: isOpen,
+        posted_on: new Date().toISOString().slice(0, 16)
+      }
+    );
 
-    };
-
-    console.log(jobData);
+      console.log(response.data);
+    } catch (error) {
+      console.error('Create job error:', error);
+    }
   };
 
   return (
@@ -109,6 +122,15 @@ function JobPostForm() {
           onChange={(e) => setIsOpen(e.target.checked)} 
         />
       </Form.Group> 
+      <Form.Group className="mb-3" controlId="formGridPostedOn">
+        <Form.Label>Posted On</Form.Label>
+        <Form.Control 
+          type="datetime-local" 
+          value={new Date().toISOString().slice(0, 16)}
+          onChange={(e) => setPostedOn(e.target.value)}
+          required
+        />
+      </Form.Group>
       <Button variant="primary" type="submit">
         Submit
       </Button>

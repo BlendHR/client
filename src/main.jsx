@@ -2,6 +2,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { useState } from 'react';
+import { useEffect } from 'react';
 import { ThemeProvider } from 'react-bootstrap';
 
 import App from './App.jsx'
@@ -24,6 +26,46 @@ import Candidates from './pages/HRView/Candidates.jsx';
 import LoginCandidate from './pages/CandidateView/Login.jsx';
 import JobView from './pages/CandidateView/JobViewCandidate.jsx';
 import CreateJob from './pages/HRView/CreateJob.jsx';
+
+import JobList from './pages/HRView/JobViewHR.jsx'
+import ApplyJob from './pages/CandidateView/ApplyJob.jsx';
+
+import instance from './axios.js';
+import {UserContext} from './UserContext.jsx';
+
+
+function Fetch() {
+
+
+
+const [data, setData] = useState('');
+// fetch user data
+
+useEffect(() => {
+const fetchUserData = async () => {
+
+  const token = '0369720fc39c5e551369e8f67132791be7cdfd3b';
+  try {
+    const response = await instance.get('user_detail/', {
+      headers: {
+        Authorization: `Token ${token}`,
+      },
+    });
+    console.log(response.data);
+    
+    setData(response.data);
+
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+
+};
+
+fetchUserData();
+
+
+}, []);
+
 import JobList from './pages/HRView/JobList.jsx';
 import ApplyJob from './pages/CandidateView/ApplyJob.jsx';
 
@@ -31,12 +73,12 @@ const router = createBrowserRouter([
   {
 
     path: "/candidate-login",
-    element: <LoginCandidate/>,
+    element: <LoginCandidate />,
     errorElement: <ErrorPage />,
   },
   {
     path: "/login",
-    element: <Login/>,
+    element: <Login />,
     errorElement: <ErrorPage />,
   },
   {
@@ -95,8 +137,13 @@ const router = createBrowserRouter([
   
 ])
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+return (
   <React.StrictMode>
+    <UserContext.Provider value={data}>
     <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+    </UserContext.Provider>
+  </React.StrictMode>
+);
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<Fetch />);

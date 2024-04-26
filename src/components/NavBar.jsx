@@ -1,19 +1,24 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+
+
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import "./NavBar.css"
 
 import react_svg from '../assets/react.svg';
+import { UserContext } from '../UserContext';
 
 // fetch user from api/accounts/user
 
 
 
 function NavBar() {
+
+  const user = useContext(UserContext);
 
 
 //   const [user, setUser] = useState('');
@@ -51,7 +56,7 @@ function NavBar() {
               <img src={react_svg} alt="bell" style={{ marginRight: '24px' }}/>
             </Nav.Link>
             <Navbar.Text>
-              Signed in as: <a href="\user">Babar Azam</a>
+              Signed in as: <a href="\user">{user ? user.first_name : 'Guest'}</a>
             </Navbar.Text>
           </Navbar.Collapse>
 
