@@ -6,37 +6,42 @@ import SideBar from "../../components/SideBar";
 import { Container, Row, Col } from "react-bootstrap";
 import axios from 'axios';
 
+import { get_user_info } from '../../../api';
+
 import './Root.css';
 export default function Root() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  // let user_info = {first_name: '', last_name: ''};
 
   // useEffect(() => {
-  //   const authToken = localStorage.getItem('blendhr-ats-auth-token');
-  //   if (authToken) {
-  //     // If authentication token exists, verify it with the backend
-  //     axios.post('/api/verify-token', { authToken })
-  //       .then(response => {
-  //         // If token verification is successful, navigate to the home page
-  //         navigate('/dashboard');
-  //       })
-  //       .catch(error => {
-  //         // If token verification fails, navigate to the login page
-  //         // navigate('/login');
-  //         navigate('/dashboard'); // Just for now until we haven't connected the server
-  //       });
-  //   } else {
-  //     // If no authentication token exists, navigate to the login page
+  //   const token = localStorage.getItem('token');
+  //   if (!token) {
   //     navigate('/login');
+  //   } else {
+  //     // axios.defaults.headers.common['Authorization'] = `Token ${token}`;
+  //     get_user_info()
+  //       .then((response) => {
+  //         if (response.status === 200) {
+  //           user_info = response.data;
+  //         } else {
+  //           navigate('/login');
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error in Root.jsx::useEffect:", error);
+  //         navigate('/login');
+  //       });
   //   }
-  // }, []); // Empty dependency array ensures this effect runs only once when the component mounts
-
+  // }
+  // , [navigate]);
+  
   return (
     <>
-      <NavBar />
+      {/* <NavBar name={user_info.first_name + user_info.last_name} /> */}
       <div id="main">
         <Outlet />
       </div>
-      <SideBar />
+      <SideBar/>
     </>
   );
 }
