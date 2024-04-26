@@ -11,10 +11,10 @@ import './global.css'
 
 import "./custom-bootstrap.scss";
 
-import Root from './pages/Root.jsx';
+import Root from './pages/HRView/Root.jsx';
 
-import Login from './pages/Login.jsx';
-import ErrorPage from './pages/ErrorPage.jsx';
+import Login from './pages/HRView/Login.jsx';
+import ErrorPage from './pages/HRView/ErrorPage.jsx';
 import UserList from './components/UserList.jsx';
 import InviteLinkForm from './components/InviteLinkForm.jsx';
 import SignupForm from './pages/HRView/SignupForm.jsx';
@@ -26,6 +26,7 @@ import Candidates from './pages/HRView/Candidates.jsx';
 import LoginCandidate from './pages/CandidateView/Login.jsx';
 import JobView from './pages/CandidateView/JobViewCandidate.jsx';
 import CreateJob from './pages/HRView/CreateJob.jsx';
+
 import JobList from './pages/HRView/JobViewHR.jsx'
 import ApplyJob from './pages/CandidateView/ApplyJob.jsx';
 
@@ -65,6 +66,9 @@ fetchUserData();
 
 }, []);
 
+import JobList from './pages/HRView/JobList.jsx';
+import ApplyJob from './pages/CandidateView/ApplyJob.jsx';
+
 const router = createBrowserRouter([
   {
 
@@ -83,14 +87,19 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/verify-email",
+    path: "/signup/verify-email",
     element: <EmailVerification />,
     errorElement: <ErrorPage />,
   },
   {
+    path: "/apply-job/:jobId",
+    element: <ApplyJob />,
+    errorElement: <ErrorPage />,
+  }
+,
+  {
     path: "/",
     element: <Root />,
-    errorElement: <ErrorPage />,
     children: [ // Now the sidebar will act as a layout for all of the below pages. I think this is more optimized
       {
         path: "/team",
@@ -102,16 +111,25 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <div>Dahhboard</div>,
+        element: <div>Dashboard</div>,
         errorElement: <ErrorPage />,
       },
       {
         path: "/jobs",
-        element: <Jobs />,
+        element: <JobList />,
       },
       {
         path: "/post-job",
         element: <JobPostForm />,
+      },
+      {
+        path: "/candidates",
+        element: <Candidates />,
+      },
+      {
+        path: "/job-view",
+        element: <JobView />,
+        errorElement: <ErrorPage />,
       },
       
     ]

@@ -8,42 +8,24 @@ import "./JobCardList.css";
 import react_svg from '../assets/react.svg';
 
 function GroupExample() {
-  const [jobs, setJobs] = useState([]);
+  const [job, setJobs] = useState([]);
 
   useEffect(() => {
-    // Fetch jobs data from the server when the component mounts
-    axios.get('/api/jobs')
-      .then(response => {
-        // setJobs(response.data);
-        setJobs([
-          {
-            id: 1,
-            title: 'Job 1',
-            description: 'Job description 1',
-            image: {react_svg},
-          },
-          {
-            id: 2,
-            title: 'Job 2',
-            description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos vel quisquam quae, a quis, laudantium maxime eum, perferendis",
-            image: {react_svg},
-          },
-          {
-            id: 3,
-            title: 'Job 3',
-            description: 'Job description 3',
-            image: {react_svg},
-          },
-        ]);
-      })
-      .catch(error => {
-        console.error('Error fetching jobs:', error);
-      });
-  }, []); // Empty dependency array ensures this effect runs only once when the component mounts
+    const fetchJobs = async () => {
+      try {
+        const response = await axios.get('http://localhost:8000/api/jobs');
+        setJobs(response.data);
+      } catch (error) {
+        console.error('Failed to fetch jobs', error);
+      }
+    };
+
+    fetchJobs();
+  }, [job]);
 
   return (
     <CardGroup>
-      {jobs.map(job => (
+      {job.map(job => (
         <Card key={job.id}>
           <Link to={`/jobs/${job.id}`}>
             <Card.Img className="card-img" variant="top" src={react_svg} />

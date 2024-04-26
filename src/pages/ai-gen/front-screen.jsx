@@ -1,27 +1,12 @@
 import "./front-screen.css";
 
-function handleLogin() {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-
-  fetch('http://localhost:3000/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ email, password }),
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Success:', data);
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-  });
+const handleLogin = () => {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 }
-
 const FrontScreen = () => {
   return (
+    <>
     <div className="front-screen">
       <div className="welcome-to-applicant-portal-parent">
         <div className="welcome-to-applicant-container">
@@ -59,8 +44,7 @@ const FrontScreen = () => {
         <div className="button6">
           <button className="rectangle-button" onClick={handleLogin} />
           <div className="login1">Login</div>
-  
-          
+        
         </div>
         <div className="remember-me16">
           <div className="remember-me17">Remember me</div>
@@ -72,6 +56,7 @@ const FrontScreen = () => {
         </button>
       </div>
     </div>
+    </>
   );
 };
 

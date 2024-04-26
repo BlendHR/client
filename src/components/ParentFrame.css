@@ -1,0 +1,346 @@
+.login-with-google-parent {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-9xl);
+    max-width: 100%;
+  }
+  .frame-child {
+    align-self: stretch;
+    height: 1px;
+    position: relative;
+    border-top: 1px solid var(--color-silver-200);
+    box-sizing: border-box;
+  }
+  .line-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-2xs) 0 0;
+    box-sizing: border-box;
+    min-width: 190px;
+  }
+  .frame-item,
+  .or {
+    position: relative;
+  }
+  .or {
+    line-height: 22px;
+    display: inline-block;
+    min-width: 23px;
+  }
+  .frame-item {
+    align-self: stretch;
+    height: 1px;
+    border-top: 1px solid var(--color-silver-200);
+    box-sizing: border-box;
+  }
+  .line-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-2xs) 0 0;
+    box-sizing: border-box;
+    min-width: 187px;
+  }
+  .frame-group,
+  .frame-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+  .frame-group {
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: var(--gap-16xl);
+  }
+  .frame-wrapper {
+    align-self: stretch;
+    justify-content: flex-end;
+    padding: 0 var(--padding-8xs) 0 var(--padding-10xs);
+    box-sizing: border-box;
+  }
+  .email-child {
+    height: 77px;
+    width: 671px;
+    position: relative;
+    border-radius: var(--br-5xs);
+    background-color: var(--inactive);
+    display: none;
+    max-width: 100%;
+  }
+  .vector-icon {
+    width: 30px;
+    height: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .vector-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 0 0 var(--padding-7xs);
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+  }
+  .email1,
+  .examplegmailcom {
+    position: relative;
+    line-height: 135.5%;
+    display: inline-block;
+    min-width: 33px;
+    z-index: 1;
+  }
+  .examplegmailcom {
+    width: calc(100% - 0px);
+    border: 0;
+    outline: 0;
+    font-family: var(--font-poppins);
+    font-size: var(--font-size-base);
+    background-color: transparent;
+    align-self: stretch;
+    height: 22px;
+    font-weight: 700;
+    color: var(--black);
+    text-align: left;
+    min-width: 108px;
+    white-space: nowrap;
+    padding: 0;
+  }
+  .email-group {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-7xs);
+  }
+  .email,
+  .password-child {
+    border-radius: var(--br-5xs);
+    background-color: var(--inactive);
+    max-width: 100%;
+  }
+  .email {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: var(--padding-mini) var(--padding-4xl) var(--padding-lg);
+    box-sizing: border-box;
+    gap: var(--gap-10xl);
+  }
+  .password-child {
+    height: 77px;
+    width: 671px;
+    position: relative;
+    display: none;
+  }
+  .group-icon {
+    width: 27px;
+    height: 27px;
+    position: relative;
+    z-index: 1;
+  }
+  .group-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 0 0 var(--padding-2xs);
+  }
+  .b,
+  .password1 {
+    position: relative;
+    line-height: 135.5%;
+    display: inline-block;
+    min-width: 58px;
+    z-index: 1;
+  }
+  .b {
+    font-size: var(--font-size-base);
+    line-height: 22px;
+    min-width: 95px;
+  }
+  .frame-div,
+  .password-parent {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .password-parent {
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--gap-xs);
+  }
+  .frame-div {
+    width: 151px;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: var(--gap-10xl);
+  }
+  .bieye-fill-icon {
+    width: 22px;
+    height: 22px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .bieye-fill-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 0 0 var(--padding-2xs);
+  }
+  .email-parent,
+  .password {
+    align-self: stretch;
+    display: flex;
+    gap: var(--gap-xl);
+    max-width: 100%;
+  }
+  .password {
+    border-radius: var(--br-5xs);
+    background-color: var(--inactive);
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: var(--padding-mini) var(--padding-2xl) var(--padding-xs)
+      var(--padding-7xl);
+    box-sizing: border-box;
+  }
+  .email-parent {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .frame-input {
+    margin: 0;
+    height: 20px;
+    width: 18px;
+  }
+  .remember-me {
+    position: relative;
+    line-height: 22px;
+    display: inline-block;
+    min-width: 120px;
+  }
+  .frame-parent2 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-mini);
+  }
+  .forgot-password {
+    position: relative;
+    line-height: 22px;
+    color: var(--primary-color);
+  }
+  .frame-parent1,
+  .frame-wrapper1 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+  .frame-parent1 {
+    flex: 1;
+    justify-content: space-between;
+    gap: var(--gap-xl);
+  }
+  .frame-wrapper1 {
+    align-self: stretch;
+    justify-content: flex-start;
+    padding: 0 var(--padding-8xs) 0 var(--padding-11xs);
+    box-sizing: border-box;
+    font-size: var(--font-size-base);
+  }
+  .button-child {
+    height: 77px;
+    width: 671px;
+    position: relative;
+    border-radius: var(--br-5xs);
+    background-color: var(--primary-color);
+    display: none;
+    max-width: 100%;
+  }
+  .login {
+    position: relative;
+    font-size: var(--font-size-base);
+    line-height: 22px;
+    font-weight: 600;
+    font-family: var(--font-poppins);
+    color: var(--t2);
+    text-align: left;
+    display: inline-block;
+    min-width: 44px;
+    z-index: 1;
+  }
+  .button {
+    cursor: pointer;
+    border: 0;
+    padding: var(--padding-8xl) var(--padding-xl) var(--padding-9xl);
+    background-color: var(--primary-color);
+    align-self: stretch;
+    border-radius: var(--br-5xs);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .button:hover {
+    background-color: var(--color-mediumslateblue-100);
+  }
+  .frame-container,
+  .frame-parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+  .frame-container {
+    align-self: stretch;
+    align-items: flex-start;
+    gap: var(--gap-5xl);
+    font-size: var(--font-size-xs);
+  }
+  .frame-parent {
+    flex: 1;
+    align-items: flex-end;
+    gap: var(--gap-16xl-5);
+    text-align: left;
+    font-size: var(--font-size-base);
+    color: var(--black);
+    font-family: var(--font-poppins);
+  }
+  @media screen and (max-width: 675px) {
+    .frame-group {
+      gap: var(--gap-mid);
+    }
+    .frame-parent {
+      gap: var(--gap-lg);
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .email,
+    .frame-parent1 {
+      flex-wrap: wrap;
+    }
+  }
+  

@@ -6,7 +6,6 @@ import { useContext } from 'react';
 import { UserContext } from '../UserContext';
 
 function JobPostForm() {
-
   const [jobTitle, setJobTitle] = useState('');
   const [overview, setOverview] = useState('');
   const [responsibilities, setResponsibilities] = useState('');
@@ -42,7 +41,6 @@ function JobPostForm() {
     } catch (error) {
       console.error('Create job error:', error);
     }
-
   };
 
   return (
@@ -115,6 +113,7 @@ function JobPostForm() {
           />
         </Form.Group>
       </Row>
+
       <Form.Group className="mb-3" controlId="formGridIsOpen">
         <Form.Check 
           type="checkbox" 

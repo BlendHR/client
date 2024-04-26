@@ -1,0 +1,54 @@
+.login-with-google-child {
+    height: 78px;
+    width: 681px;
+    position: relative;
+    border-radius: var(--br-5xs);
+    background-color: var(--t2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.11);
+    display: none;
+    max-width: 100%;
+  }
+  .search-1-icon {
+    height: 32px;
+    width: 32px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .login-with-google1 {
+    position: relative;
+    line-height: 22px;
+    z-index: 1;
+  }
+  .login-with-google,
+  .login-with-google-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-8xs) 0 0;
+  }
+  .login-with-google {
+    align-self: stretch;
+    border-radius: var(--br-5xs);
+    background-color: var(--t2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.11);
+    flex-direction: row;
+    justify-content: center;
+    padding: var(--padding-6xl) var(--padding-xl) var(--padding-2xl)
+      var(--padding-3xl);
+    box-sizing: border-box;
+    gap: var(--gap-lgi);
+    max-width: 100%;
+    text-align: left;
+    font-size: var(--font-size-base);
+    color: var(--black);
+    font-family: var(--font-poppins);
+  }
+  @media screen and (max-width: 450px) {
+    .login-with-google {
+      flex-wrap: wrap;
+    }
+  }
+  

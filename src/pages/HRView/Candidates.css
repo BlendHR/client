@@ -1,0 +1,6 @@
+/*there are two form-select elements, center them and make them appear side by side to each*/
+.form-select {
+    display: inline-block;
+    margin: 0 10px 20px 0;
+    width: 25%;
+}

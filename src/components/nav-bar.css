@@ -1,0 +1,529 @@
+.profile {
+    position: absolute;
+    top: 2px;
+    left: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 164px;
+    height: 48px;
+  }
+  .profile-wrapper {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    border-radius: var(--br-6xl);
+    background-color: var(--t2);
+    width: 204px;
+    height: 50px;
+    overflow: hidden;
+  }
+  .general,
+  .navbar-inner {
+    position: relative;
+    flex-shrink: 0;
+  }
+  .navbar-inner {
+    height: 106px;
+    width: 244px;
+    overflow: hidden;
+    display: none;
+    text-align: center;
+    color: #000;
+  }
+  .general {
+    align-self: stretch;
+    height: 30px;
+    color: var(--fadetext);
+    display: flex;
+    align-items: center;
+  }
+  .tab-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .dashboard,
+  .vector-icon {
+    position: absolute;
+    top: 8px;
+  }
+  .vector-icon {
+    left: 13.2px;
+    width: 25.5px;
+    height: 25px;
+  }
+  .dashboard {
+    left: 68px;
+    display: inline-block;
+    width: 120px;
+  }
+  .tab {
+    align-self: stretch;
+    height: 40px;
+    position: relative;
+  }
+  .tab-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .chat,
+  .vector-icon1 {
+    position: absolute;
+    top: 8px;
+  }
+  .vector-icon1 {
+    left: 13px;
+    width: 25px;
+    height: 25px;
+  }
+  .chat {
+    left: 68px;
+    display: inline-block;
+    width: 120px;
+  }
+  .tab1 {
+    align-self: stretch;
+    height: 40px;
+    position: relative;
+  }
+  .calendar-icon,
+  .tab-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .calendar-icon {
+    top: 8px;
+    left: 13px;
+    width: 30px;
+    height: 25px;
+    overflow: hidden;
+  }
+  .calendar {
+    position: absolute;
+    top: 8px;
+    left: 68px;
+    display: inline-block;
+    width: 120px;
+  }
+  .tab2 {
+    align-self: stretch;
+    height: 40px;
+    position: relative;
+  }
+  .general-parent {
+    width: 244px;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #000;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-xl) 0 var(--padding-xl) var(--padding-xl);
+    box-sizing: border-box;
+    gap: var(--gap-12xl);
+  }
+  .company {
+    align-self: stretch;
+    height: 30px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .rectangle-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .account-group-icon {
+    position: absolute;
+    top: 8px;
+    left: 13px;
+    width: 30px;
+    height: 25px;
+    overflow: hidden;
+  }
+  .team {
+    position: absolute;
+    top: 8px;
+    left: 68px;
+    display: inline-block;
+    width: 120px;
+  }
+  .tab3 {
+    align-self: stretch;
+    height: 40px;
+    position: relative;
+    color: var(--t2);
+  }
+  .company-parent {
+    width: 244px;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #000;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-xl) 0 var(--padding-xl) var(--padding-xl);
+    box-sizing: border-box;
+    gap: var(--gap-12xl);
+    color: var(--fadetext);
+  }
+  .recruitment {
+    width: 224px;
+    height: 30px;
+    position: relative;
+    color: var(--fadetext);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .tab-child1 {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 224px;
+    height: 40px;
+  }
+  .briefcase-icon,
+  .jobs {
+    position: absolute;
+    top: 8px;
+  }
+  .briefcase-icon {
+    left: 16px;
+    width: 25px;
+    height: 25px;
+    overflow: hidden;
+  }
+  .jobs {
+    left: 68px;
+    display: inline-block;
+    width: 120px;
+  }
+  .rectangle-icon {
+    position: absolute;
+    top: calc(50% - 20px);
+    left: calc(50% - 122px);
+    width: 190px;
+    height: 40px;
+  }
+  .tab4 {
+    width: 244px;
+    height: 40px;
+    position: relative;
+  }
+  .tab-child2,
+  .vector-icon2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .vector-icon2 {
+    top: 8px;
+    left: 13px;
+    width: 30px;
+    height: 20px;
+  }
+  .candidates {
+    position: absolute;
+    top: 8px;
+    left: 68px;
+    display: inline-block;
+    width: 120px;
+  }
+  .tab5 {
+    width: 224px;
+    height: 40px;
+    position: relative;
+  }
+  .tab-child3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .credit-card-icon {
+    position: absolute;
+    top: 8px;
+    left: 13px;
+    width: 30px;
+    height: 25px;
+    overflow: hidden;
+  }
+  .career-site {
+    position: absolute;
+    top: 8px;
+    left: 68px;
+    display: inline-block;
+    width: 120px;
+  }
+  .tab6 {
+    width: 224px;
+    height: 40px;
+    position: relative;
+  }
+  .recruitment-parent {
+    width: 244px;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #000;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-xl);
+    box-sizing: border-box;
+    gap: var(--gap-12xl);
+  }
+  .visit-our-help {
+    width: 216px;
+    font-size: var(--font-size-mid);
+    line-height: 135.5%;
+    text-transform: capitalize;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    flex-shrink: 0;
+  }
+  .navbar-child,
+  .settings-icon,
+  .visit-our-help {
+    position: relative;
+    display: none;
+  }
+  .settings-icon {
+    height: 41px;
+    width: 39px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .navbar-child {
+    height: 47px;
+    width: 7px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-right: 7px solid var(--color-gainsboro);
+    box-sizing: border-box;
+  }
+  .profile1 {
+    margin: 0;
+    height: 48px;
+    flex: 1;
+    position: relative;
+    font-size: inherit;
+    font-weight: 900;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .profile-container {
+    flex: 1;
+    border-radius: var(--br-6xl);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-11xs) var(--padding-lg) 0;
+  }
+  .general1,
+  .parent-inner {
+    align-self: stretch;
+    display: flex;
+  }
+  .parent-inner {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 0 var(--padding-xl) 0 var(--padding-lg);
+    color: #f16825;
+  }
+  .general1 {
+    height: 30px;
+    position: relative;
+    color: var(--fadetext);
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .tab-child4 {
+    height: 40px;
+    width: 224px;
+    position: relative;
+    display: none;
+  }
+  .dashboard1,
+  .vector-icon3 {
+    position: relative;
+    z-index: 1;
+  }
+  .vector-icon3 {
+    height: 25px;
+    width: 25.5px;
+    min-height: 25px;
+  }
+  .dashboard1 {
+    width: 120px;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  .tab7 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-5xs) 13.2px var(--padding-6xs);
+    gap: 29.3px;
+    cursor: pointer;
+  }
+  .tab-child5 {
+    height: 40px;
+    width: 224px;
+    position: relative;
+    display: none;
+  }
+  .chat1,
+  .vector-icon4 {
+    position: relative;
+    z-index: 1;
+  }
+  .vector-icon4 {
+    height: 25px;
+    width: 25px;
+    min-height: 25px;
+  }
+  .chat1 {
+    width: 120px;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  .tab8 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-5xs) var(--padding-smi) var(--padding-6xs);
+    gap: 30px;
+  }
+  .tab-child6 {
+    height: 40px;
+    width: 224px;
+    position: relative;
+    display: none;
+  }
+  .calendar-icon1,
+  .calendar1 {
+    position: relative;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .calendar-icon1 {
+    height: 25px;
+    width: 30px;
+    overflow: hidden;
+    min-height: 25px;
+  }
+  .calendar1 {
+    width: 120px;
+    display: inline-block;
+  }
+  .general-group,
+  .tab9 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-5xs) var(--padding-smi) var(--padding-6xs);
+    gap: var(--gap-6xl);
+  }
+  .general-group {
+    flex-direction: column;
+    padding: 0 0 var(--padding-8xs) var(--padding-lg);
+    gap: var(--gap-12xl);
+    text-align: left;
+    font-size: var(--font-size-xl);
+  }
+  .settings-icon1 {
+    height: 41px;
+    width: 39px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .settings-wrapper,
+  .visit-our-help1 {
+    align-self: stretch;
+    display: flex;
+    justify-content: center;
+  }
+  .settings-wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0 var(--padding-xl) 0 21px;
+  }
+  .visit-our-help1 {
+    height: 40px;
+    position: relative;
+    line-height: 135.5%;
+    text-transform: capitalize;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .frame-parent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .settings-frame {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 0 14px 0 var(--padding-xs);
+    font-size: var(--font-size-mid);
+  }
+  .navbar,
+  .parent {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #000;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    color: var(--t2);
+    font-family: var(--font-inter);
+  }
+  .parent {
+    flex: 1;
+    overflow-y: auto;
+    flex-direction: column;
+    padding: 30px var(--padding-11xs) 19px;
+    gap: 46px;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: 27px;
+  }
+  .navbar {
+    width: 100%;
+    overflow: hidden;
+    flex-direction: row;
+    line-height: normal;
+    letter-spacing: normal;
+
+  }
