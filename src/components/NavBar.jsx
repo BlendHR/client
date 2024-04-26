@@ -1,11 +1,16 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+
+
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import "./NavBar.css"
 
 import react_svg from '../assets/react.svg';
+import { UserContext } from '../UserContext';
 
 function NavBar(props) {
 
