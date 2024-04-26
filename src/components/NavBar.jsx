@@ -1,10 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-<<<<<<< Updated upstream
-=======
 import React, { useContext, useEffect, useState } from 'react';
->>>>>>> Stashed changes
 import { Link } from 'react-router-dom';
 
 import "./NavBar.css"
@@ -13,8 +10,6 @@ import react_svg from '../assets/react.svg';
 import { UserContext } from '../UserContext';
 
 function NavBar() {
-<<<<<<< Updated upstream
-=======
 
   const user = useContext(UserContext);
 
@@ -36,7 +31,6 @@ function NavBar() {
 // useEffect(() => {
 //   fetchUser();
 // }, []); // add an empty dependency array to run the effect only once when the component mounts
->>>>>>> Stashed changes
   return (
     <div id="navbar">
       <Navbar bg="dark" data-bs-theme="dark">

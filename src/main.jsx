@@ -17,15 +17,6 @@ import Login from './pages/Login.jsx';
 import ErrorPage from './pages/ErrorPage.jsx';
 import UserList from './components/UserList.jsx';
 import InviteLinkForm from './components/InviteLinkForm.jsx';
-<<<<<<< Updated upstream
-import SignupForm from './pages/SignupForm.jsx';
-import EmailVerification from './pages/EmailVerification.jsx';
-import Jobs from './pages/Jobs.jsx';
-
-import JobPostForm from './components/jobPostFomr.jsx';
-const router = createBrowserRouter([
-  {
-=======
 import SignupForm from './pages/HRView/SignupForm.jsx';
 import EmailVerification from './pages/HRView/EmailVerification.jsx';
 import Jobs from './pages/HRView/Jobs.jsx';
@@ -82,7 +73,6 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
->>>>>>> Stashed changes
     path: "/login",
     element: <Login />,
     errorElement: <ErrorPage />,
