@@ -23,6 +23,8 @@ const USER_INFO_URL = "/api/accounts/users/me";
 // functions
 const GET_JOBS_INFO_URL = "/api/jobs/";
 
+const GET_CANDIDATES_URL = "/api/candidates/";
+
 export const async_login = async (email, password) => {
     console.log(email, password);
     try {
@@ -83,6 +85,16 @@ export const async_get_jobs_info = async (jobId, stageID) => {
         return response.data;
     } catch (error) {
         console.error("Error in async_get_jobs_info:", error);
+        return null;
+    }
+}
+
+export const async_get_candidates = async () => {
+    try {
+        const response = await api.get(GET_CANDIDATES_URL);
+        return response.data;
+    } catch (error) {
+        console.error("Error in async_get_candidates:", error);
         return null;
     }
 }
