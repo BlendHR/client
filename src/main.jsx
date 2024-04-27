@@ -33,41 +33,36 @@ import ApplyJob from './pages/CandidateView/ApplyJob.jsx';
 import instance from './axios.js';
 import {UserContext} from './UserContext.jsx';
 
-
-function Fetch() {
-
-
-
-const [data, setData] = useState('');
-// fetch user data
-
-useEffect(() => {
-const fetchUserData = async () => {
-
-  const token = '0369720fc39c5e551369e8f67132791be7cdfd3b';
-  try {
-    const response = await instance.get('user_detail/', {
-      headers: {
-        Authorization: `Token ${token}`,
-      },
-    });
-    console.log(response.data);
-    
-    setData(response.data);
-
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  }
-
-};
-
-fetchUserData();
-
-
-}, []);
-
 import JobList from './pages/HRView/JobList.jsx';
 import ApplyJob from './pages/CandidateView/ApplyJob.jsx';
+
+function Fetch() {
+  const [data, setData] = useState('');
+  // fetch user data
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+
+      const token = '0369720fc39c5e551369e8f67132791be7cdfd3b';
+      try {
+        const response = await instance.get('user_detail/', {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        });
+        console.log(response.data);
+        
+        setData(response.data);
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+
+    };
+
+    fetchUserData();
+  }, []);
+
 
 const router = createBrowserRouter([
   {
