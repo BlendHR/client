@@ -27,17 +27,9 @@ import LoginCandidate from './pages/CandidateView/Login.jsx';
 import JobView from './pages/CandidateView/JobViewCandidate.jsx';
 import CreateJob from './pages/HRView/CreateJob.jsx';
 
-import JobList from './pages/HRView/JobViewHR.jsx'
-import CandidateProfile from './pages/HRView/CandidateProfile.jsx';
-
-import JobList from './pages/HRView/JobList.jsx';
-import ApplyJob from './pages/CandidateView/ApplyJob.jsx';
-
 import instance from './axios.js';
 import {UserContext} from './UserContext.jsx';
 
-import JobList from './pages/HRView/JobList.jsx';
-import ApplyJob from './pages/CandidateView/ApplyJob.jsx';
 import JobList from './pages/HRView/JobList.jsx';
 import ApplyJob from './pages/CandidateView/ApplyJob.jsx';
 
@@ -96,11 +88,11 @@ const router = createBrowserRouter([
     element: <ApplyJob />,
     errorElement: <ErrorPage />,
   },
-  {
-    path: "/candidates/:id",
-    element: <CandidateProfile />,
-    errorElement: <ErrorPage />,
-  },
+  // {
+  //   path: "/candidates/:id",
+  //   element: <CandidateProfile />,
+  //   errorElement: <ErrorPage />,
+  // },
   {
     path: "/",
     element: <Root />,
