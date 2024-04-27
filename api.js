@@ -18,7 +18,9 @@ const VERIFY_EMAIL_URL = "/api/accounts/signup/verify/";
 
 // get user info
 const USER_INFO_URL = "/api/accounts/users/me";
-// add more
+
+const GET_JOBS_INFO_URL = "api/jobs"
+
 
 // functions
 
@@ -72,6 +74,16 @@ export const get_user_info = async () => {
         return response.data;
     } catch (error) {
         console.error("Error in api.js::get_user_info:", error);
+        return null;
+    }
+}
+
+export const async_get_jobs_info = async () => {    
+    try {
+        const response = await api.get(GET_JOBS_INFO_URL);
+        return response.data;
+    } catch (error) {
+        console.error("Error in async_get_jobs_info:", error);
         return null;
     }
 }

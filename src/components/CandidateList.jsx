@@ -1,27 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, } from 'react';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import instance from '../axios';
 import "./JobCardList.css";
 import { Link } from 'react-router-dom';
 
 function CandidateList() {
   const [candidates, setCandidates] = useState([]);
 
-  useEffect(() => {
-    const fetchCandidates = async () => {
-      try {
-        const response = await instance.get('/candidates/');
-        setCandidates(response.data);
-      } catch (error) {
-        console.error('Failed to fetch candidates', error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchCandidates = async () => {
+  //     try {
+  //       const response = await instance.get('/candidates/');
+  //       setCandidates(response.data);
+  //     } catch (error) {
+  //       console.error('Failed to fetch candidates', error);
+  //     }
+  //   };
 
-    fetchCandidates();
-  }, []);
+  //   fetchCandidates();
+  // }, []);
 
   return (
     <Row xs={1} md={3} className="g-4">

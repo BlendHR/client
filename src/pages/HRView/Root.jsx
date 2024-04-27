@@ -3,12 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import NavBar from "../../components/NavBar";
 import { Outlet } from "react-router-dom";
 import SideBar from "../../components/SideBar";
-import { Container, Row, Col } from "react-bootstrap";
-import axios from 'axios';
 
 import { get_user_info } from '../../../api';
-
 import './Root.css';
+
 export default function Root() {
   const navigate = useNavigate();
   const [user_info, setUser_info] = useState(null);
@@ -17,6 +15,10 @@ export default function Root() {
     const fetchUserInfo = async () => {
       try {
         const userInfo = await get_user_info();
+        if (!userInfo) {
+          navigate('/login');
+          return;
+        }
         setUser_info(userInfo);
       } catch (error) {
         navigate('/login');

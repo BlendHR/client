@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
-import axios from 'axios';
-import instance from '../axios';
-import { useContext } from 'react';
-import { UserContext } from '../UserContext';
 
 function JobPostForm() {
   const [jobTitle, setJobTitle] = useState('');
@@ -15,32 +11,30 @@ function JobPostForm() {
   const [isOpen, setIsOpen] = useState(true);
   const [postedOn, setPostedOn] = useState('');
 
-  const user = useContext(UserContext);
-
   const handleSubmit = async (e) => {
 
     
     e.preventDefault();
-    try {
-      const response = await instance.post('jobs/', {
-        creater_id: user.id,
-        org_id: 'Habib University',
-        salary:1,
-        job_title: jobTitle,
-        overview: overview,
-        responsibilities: responsibilities,
-        qualifications: qualifications,
-        work_site: workSite,
-        work_type: workType,
-        is_open: isOpen,
-        posted_on: new Date().toISOString().slice(0, 16)
-      }
-    );
+    // try {
+    //   const response = await instance.post('jobs/', {
+    //     creater_id: user.id,
+    //     org_id: 'Habib University',
+    //     salary:1,
+    //     job_title: jobTitle,
+    //     overview: overview,
+    //     responsibilities: responsibilities,
+    //     qualifications: qualifications,
+    //     work_site: workSite,
+    //     work_type: workType,
+    //     is_open: isOpen,
+    //     posted_on: new Date().toISOString().slice(0, 16)
+    //   }
+    // );
 
-      console.log(response.data);
-    } catch (error) {
-      console.error('Create job error:', error);
-    }
+    //   console.log(response.data);
+    // } catch (error) {
+    //   console.error('Create job error:', error);
+    // }
   };
 
   return (

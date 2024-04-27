@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { Spinner } from 'react-bootstrap';
+
+import { async_get_jobs_info } from '../../../api';
 
 function JobList() {
   const [jobs, setJobs] = useState([]);
+  const [fetched, setFetched] = useState(false);
 
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/jobs');
-        setJobs(response.data);
+        const jobs = await async_get_jobs_info();
+        setJobs(jobs);
+        setFetched(true);
       } catch (error) {
-        console.error('Failed to fetch jobs', error);
+        console.error("Error in JobList.jsx::fetchJobs:", error);
       }
     };
 
@@ -26,7 +30,9 @@ function JobList() {
          <Button variant="primary">Post Job</Button>
        </Link>
 
-       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
+      {fetched ? null : <Spinner animation="border" />}
+       
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
       {jobs.map((job) => (
         <Card key={job.job_id} style={{ width: '18rem', marginBottom: '1rem' }}>
           <Card.Body>
