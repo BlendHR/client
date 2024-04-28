@@ -1,7 +1,7 @@
 // api instance for the drf backend
 import axios from "axios";
 
-const BASE_URL = "https://animated-funicular-jp49gw99w95c5wj4-8000.app.github.dev/";
+export const BASE_URL = "https://animated-funicular-jp49gw99w95c5wj4-8000.app.github.dev/";
 
 export const api = axios.create({
     baseURL: BASE_URL,
@@ -15,6 +15,9 @@ const SIGNUP_URL = "/api/accounts/signup/";
 
 // verify email looks like thishttp://localhost:8000/api/accounts/signup/verify/?code={{ code }}
 const VERIFY_EMAIL_URL = "/api/accounts/signup/verify/";
+// create recruiter profile
+const RECRUITER_URL = "/api/recruiters/";
+const ORG_URL = "/api/organizations/";
 
 // get user info
 const USER_INFO_URL = "/api/accounts/users/me";
@@ -24,6 +27,9 @@ const USER_INFO_URL = "/api/accounts/users/me";
 const GET_JOBS_INFO_URL = "/api/jobs/";
 
 const GET_CANDIDATES_URL = "/api/candidates/";
+
+const POST_JOB_URL = "/api/jobs/";
+
 
 export const async_login = async (email, password) => {
     console.log(email, password);
@@ -95,6 +101,39 @@ export const async_get_candidates = async () => {
         return response.data;
     } catch (error) {
         console.error("Error in async_get_candidates:", error);
+        return null;
+    }
+}
+
+export const async_create_recruiter_profile = async (user_id) => {
+    try {
+        // first create a sample organization
+        const org_response = await api.post(ORG_URL, {
+            org_name: "Your Organization",
+        });
+        console.log(org_response.data)
+        // then create a recruiter profile
+        const response = await api.post(RECRUITER_URL, {
+            user_id: user_id,
+            org_id: org_response.data.org_id,
+        });
+        return response;
+    }
+    catch (error) {
+        console.error("Error in async_create_recruiter_profile:", error);
+        return null;
+    }
+}
+
+export const async_get_recruiter = async (user_id) => {
+    try {
+        const response = await api.get(`${RECRUITER_URL}/${user_id}`);
+        if (response.status === 404) {
+            return null;
+        }
+        return response.data;
+    } catch (error) {
+        console.error("Error in async_get_recruiter:", error);
         return null;
     }
 }

@@ -1,35 +1,33 @@
 import React, { useState } from 'react';
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { Form, Button, Card ,Row, Col, Container } from 'react-bootstrap';
 import axios from 'axios';
 import instance from '../axios';
 import { useContext } from 'react';
 import { UserContext } from '../UserContext';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 function JobPostForm() {
   const [jobTitle, setJobTitle] = useState('');
   const [overview, setOverview] = useState('');
-  const [responsibilities, setResponsibilities] = useState('');
-  const [qualifications, setQualifications] = useState('');
+  const [richOverview, setRichOverview] = useState('');
   const [workSite, setWorkSite] = useState('');
   const [workType, setWorkType] = useState('');
   const [isOpen, setIsOpen] = useState(true);
   const [postedOn, setPostedOn] = useState('');
 
-  const user = useContext(UserContext);
+  const [success, setSuccess] = useState('');
+  const history = useNavigate();
 
   const handleSubmit = async (e) => {
 
-    
     e.preventDefault();
     try {
-      const response = await instance.post('jobs/', {
-        creater_id: user.id,
-        org_id: 'Habib University',
-        salary:1,
+      const response = await instance.post('/api/jobs/', {
+        creater_id: 1,
         job_title: jobTitle,
         overview: overview,
-        responsibilities: responsibilities,
-        qualifications: qualifications,
         work_site: workSite,
         work_type: workType,
         is_open: isOpen,
@@ -37,16 +35,22 @@ function JobPostForm() {
       }
     );
 
+      setSuccess('Job created successfully');
+      setTimeout(() => history('/jobs'), 2000);
       console.log(response.data);
     } catch (error) {
       console.error('Create job error:', error);
     }
   };
 
-  return (
-    <Form onSubmit={handleSubmit}>
-      <Row className="mb-3">
-        <Form.Group as={Col} controlId="formGridJobTitle">
+return (
+  <>
+  <h1>Job Post Form</h1>
+  <Container style={{ marginTop: '2rem', width: '200px' }} >
+  <Card style={{ width: '300%' }}>
+    <Card.Body style={{ marginTop: '2rem', width: '100%' }}>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="formGridJobTitle">
           <Form.Label>Job Title</Form.Label>
           <Form.Control 
             type="text" 
@@ -56,8 +60,8 @@ function JobPostForm() {
             required 
           />
         </Form.Group>
-
-        <Form.Group as={Col} controlId="formGridWorkSite">
+        <br />
+        <Form.Group controlId="formGridWorkSite">
           <Form.Label>Work Site</Form.Label>
           <Form.Control 
             type="text" 
@@ -67,42 +71,20 @@ function JobPostForm() {
             required 
           />
         </Form.Group>
-      </Row>
-
-      <Row className="mb-3">
-        <Form.Group as={Col} controlId="formGridOverview">
+        <br />
+        <Form.Group controlId="formGridOverview">
           <Form.Label>Overview</Form.Label>
-          <Form.Control 
-            as="textarea" 
+          <ReactQuill 
             placeholder="Enter overview" 
-            value={overview} 
-            onChange={(e) => setOverview(e.target.value)} 
-          />
+            value={richOverview} 
+            onChange={(content, delta, source, editor) => {
+              setRichOverview(content);
+              setOverview(editor.getText().trim());
+            }} 
+            />
         </Form.Group>
-
-        <Form.Group as={Col} controlId="formGridResponsibilities">
-          <Form.Label>Responsibilities</Form.Label>
-          <Form.Control 
-            as="textarea" 
-            placeholder="Enter responsibilities" 
-            value={responsibilities} 
-            onChange={(e) => setResponsibilities(e.target.value)} 
-          />
-        </Form.Group>
-      </Row>
-
-      <Row className="mb-3">
-        <Form.Group as={Col} controlId="formGridQualifications">
-          <Form.Label>Qualifications</Form.Label>
-          <Form.Control 
-            as="textarea" 
-            placeholder="Enter qualifications" 
-            value={qualifications} 
-            onChange={(e) => setQualifications(e.target.value)} 
-          />
-        </Form.Group>
-
-        <Form.Group as={Col} controlId="formGridWorkType">
+        <br />
+        <Form.Group controlId="formGridWorkType">
           <Form.Label>Work Type</Form.Label>
           <Form.Control 
             type="text" 
@@ -112,30 +94,35 @@ function JobPostForm() {
             required 
           />
         </Form.Group>
-      </Row>
-
-      <Form.Group className="mb-3" controlId="formGridIsOpen">
-        <Form.Check 
-          type="checkbox" 
-          label="Is Open" 
-          checked={isOpen} 
-          onChange={(e) => setIsOpen(e.target.checked)} 
-        />
-      </Form.Group> 
-      <Form.Group className="mb-3" controlId="formGridPostedOn">
-        <Form.Label>Posted On</Form.Label>
-        <Form.Control 
-          type="datetime-local" 
-          value={new Date().toISOString().slice(0, 16)}
-          onChange={(e) => setPostedOn(e.target.value)}
-          required
-        />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
-  );
+        <br />
+        <Form.Group controlId="formGridIsOpen">
+          <Form.Check 
+            type="checkbox" 
+            label="Is Open" 
+            checked={isOpen} 
+            onChange={(e) => setIsOpen(e.target.checked)} 
+          />
+        </Form.Group> 
+        <br />
+        <Form.Group controlId="formGridPostedOn">
+          <Form.Label>Posted On</Form.Label>
+          <Form.Control 
+            type="datetime-local" 
+            value={new Date().toISOString().slice(0, 16)}
+            onChange={(e) => setPostedOn(e.target.value)}
+            required
+          />
+        </Form.Group>
+        <br />
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
+    </Card.Body>
+  </Card>
+  </Container>
+  </>
+);
 }
 
 export default JobPostForm;

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Alert } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
 
-import { async_login } from '../../../api';
+import { async_login, async_get_recruiter, get_user_info, async_create_recruiter_profile } from '../../../api';
 
 function Login() {
   const navigate = useNavigate();
@@ -26,6 +26,11 @@ function Login() {
         // Set state variables to render success alert
         setAlertVariant('success');
         setAlertMessage('Login successful');
+        const user_info = await get_user_info();
+        if (!user_info){
+          setAlertVariant('success');
+          setAlertMessage('Setting up your account');
+        }
         navigate('/');
       }else {
         // Set state variables to render error alert if response does not contain data
