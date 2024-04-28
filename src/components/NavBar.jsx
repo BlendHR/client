@@ -8,6 +8,8 @@ import { UserContext } from '../UserContext';
 
 function NavBar(props) {
 
+
+
   return (
     <div id="navbar">
       <Navbar bg="dark" data-bs-theme="dark">

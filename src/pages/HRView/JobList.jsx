@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Card, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Card, Button, Col, Row } from 'react-bootstrap';
+import { Link , useNavigate } from 'react-router-dom';
 
 function JobList() {
   const [jobs, setJobs] = useState([]);
@@ -25,15 +25,13 @@ function JobList() {
       <Link to={`/post-job/`}>
          <Button variant="primary">Post Job</Button>
        </Link>
-
        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
       {jobs.map((job) => (
+        <Col key={job.job_id}>
+          <Link to={`/edit-job/${job.job_id}`}>
         <Card key={job.job_id} style={{ width: '18rem', marginBottom: '1rem' }}>
           <Card.Body>
             <Card.Title>{job.job_title}</Card.Title>
-            <Card.Text>
-              {job.overview}
-            </Card.Text>
             <Card.Text>
               Posted on: {new Date(job.posted_on).toLocaleDateString()}
             </Card.Text>
@@ -53,6 +51,8 @@ function JobList() {
           </Card.Body>
           
         </Card>
+        </Link>
+        </Col>
       ))}
     </div>
     </div>
