@@ -4,7 +4,7 @@ import { Button, Fade } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { Alert } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
-
+import { useUser } from '../../UserContext';
 import { async_login, async_get_recruiter, get_user_info, async_create_recruiter_profile } from '../../../api';
 
 function Login() {
@@ -15,7 +15,7 @@ function Login() {
   const [show_alert, setShowAlert] = useState(false);
   const [alert_variant, setAlertVariant] = useState('success');
   const [alert_message, setAlertMessage] = useState('');
-
+  const { user, setUser } = useUser();
   const handleLogin = async () => {
     setIsLoading(true);
     const response = await async_login(email, password);
@@ -27,11 +27,42 @@ function Login() {
         setAlertVariant('success');
         setAlertMessage('Login successful');
         const user_info = await get_user_info();
+        console.log(user_info);
         if (!user_info){
-          setAlertVariant('success');
-          setAlertMessage('Setting up your account');
+          setAlertVariant('danger');
+          setAlertMessage('Login failed: server error');
+        }else{
+          if (user_info){
+            const recruiter_info = await async_get_recruiter(user_info.id);
+            if (!recruiter_info){
+              setAlertVariant('success');
+              setAlertMessage('Setting up profile...');
+              const create_rec_response = await async_create_recruiter_profile(user_info.id);
+              if (!create_rec_response){
+                setAlertVariant('danger');
+                setAlertMessage('Login failed: server error');
+              } else{
+                // Redirect to recruiter profile page in 1 second
+                setUser({
+                  email: user_info.email,
+                  id: user_info.id,
+                  recruiter_id: create_rec_response.recruiter_id
+                });
+                setTimeout(() => {
+                  navigate('/');
+                }, 1000);
+              }
+            } else {
+              setUser({
+                email: user_info.email,
+                id: user_info.id,
+                recruiter_id: recruiter_info.recruiter_id
+              })
+              navigate('/');
+            }
+
+          }
         }
-        navigate('/');
       }else {
         // Set state variables to render error alert if response does not contain data
         setAlertVariant('danger');

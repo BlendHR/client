@@ -3,12 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { Form, Button, Card ,Row, Col, Container } from 'react-bootstrap';
 import axios from 'axios';
 import instance from '../axios';
-import { useContext } from 'react';
-import { UserContext } from '../UserContext';
+
+import { useUser } from '../UserContext';
+
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-function JobPostForm() {
+function JobPostForm(props) {
   const [jobTitle, setJobTitle] = useState('');
   const [overview, setOverview] = useState('');
   const [richOverview, setRichOverview] = useState('');
@@ -19,13 +20,14 @@ function JobPostForm() {
 
   const [success, setSuccess] = useState('');
   const history = useNavigate();
+  const {user} = useUser();
 
   const handleSubmit = async (e) => {
 
     e.preventDefault();
     try {
       const response = await instance.post('/api/jobs/', {
-        creater_id: 1,
+        creater_id: user.recruiter_id,
         job_title: jobTitle,
         overview: overview,
         work_site: workSite,
@@ -46,10 +48,7 @@ function JobPostForm() {
 return (
   <>
   <h1>Job Post Form</h1>
-  <Container style={{ marginTop: '2rem', width: '200px' }} >
-  <Card style={{ width: '300%' }}>
-    <Card.Body style={{ marginTop: '2rem', width: '100%' }}>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} style={{width: '100%'}}>
         <Form.Group controlId="formGridJobTitle">
           <Form.Label>Job Title</Form.Label>
           <Form.Control 
@@ -72,18 +71,6 @@ return (
           />
         </Form.Group>
         <br />
-        <Form.Group controlId="formGridOverview">
-          <Form.Label>Overview</Form.Label>
-          <ReactQuill 
-            placeholder="Enter overview" 
-            value={richOverview} 
-            onChange={(content, delta, source, editor) => {
-              setRichOverview(content);
-              setOverview(editor.getText().trim());
-            }} 
-            />
-        </Form.Group>
-        <br />
         <Form.Group controlId="formGridWorkType">
           <Form.Label>Work Type</Form.Label>
           <Form.Control 
@@ -95,15 +82,6 @@ return (
           />
         </Form.Group>
         <br />
-        <Form.Group controlId="formGridIsOpen">
-          <Form.Check 
-            type="checkbox" 
-            label="Is Open" 
-            checked={isOpen} 
-            onChange={(e) => setIsOpen(e.target.checked)} 
-          />
-        </Form.Group> 
-        <br />
         <Form.Group controlId="formGridPostedOn">
           <Form.Label>Posted On</Form.Label>
           <Form.Control 
@@ -114,13 +92,20 @@ return (
           />
         </Form.Group>
         <br />
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
+        <Form.Label>Job Description</Form.Label>
+        <ReactQuill 
+            placeholder="Enter overview" 
+            value={richOverview} 
+            onChange={(content, delta, source, editor) => {
+              setRichOverview(content);
+              setOverview(editor.getText().trim());
+            }} 
+            style={{ height: '200px', width: '100%', marginBottom: '100px'}}
+            />
+      <Button className="my-btn" variant="primary" type="submit">
+        Submit
+      </Button>
       </Form>
-    </Card.Body>
-  </Card>
-  </Container>
   </>
 );
 }

@@ -6,12 +6,16 @@ import SideBar from "../../components/SideBar";
 import { Container, Row, Col } from "react-bootstrap";
 import axios from 'axios';
 
-import { get_user_info } from '../../../api';
+import { get_user_info, async_get_recruiter } from '../../../api';
+
+import { useUser } from '../../UserContext';
 
 import './Root.css';
 export default function Root() {
   const navigate = useNavigate();
   const [user_info, setUser_info] = useState(null);
+  const [recruiter_info, setRecruiter_info] = useState(null);
+  const { user, setUser } = useUser();
 
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -22,25 +26,31 @@ export default function Root() {
           return;
         }
         setUser_info(userInfo);
+        const _rec_info = await async_get_recruiter(userInfo.id);
+        setUser({
+          email: userInfo.email,
+          id: userInfo.id,
+          recruiter_id: _rec_info.recruiter_id
+        })
       } catch (error) {
+        console.error('Error fetching data:', error);
         navigate('/login');
       }
     };
-
     fetchUserInfo();
-  }, [navigate]);
+  }, []);
 
-  if (!user_info) {
+  if (!user) {
     return <div>
       Loading...
     </div>; // You might want to render a loading spinner or message here
   }
-  console.log(user_info); // <console>
+  console.log(user); // <console>
   return (
     <>
-      <NavBar name={user_info.email} /> 
+      <NavBar name={user.email} /> 
       <div id="main">
-        <Outlet />
+        <Outlet recruiter_id={user.id}/>
       </div>
       <SideBar/>
     </>

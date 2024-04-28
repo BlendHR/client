@@ -27,7 +27,7 @@ function JobList() {
     <div>
       <h1>Job List</h1>
       <Link to={`/post-job/`}>
-         <Button variant="primary">Post Job</Button>
+         <Button className='my-btn' variant="primary">Post Job</Button>
        </Link>
 
       {fetched ? null : <Spinner animation="border" />}

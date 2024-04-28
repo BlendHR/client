@@ -8,7 +8,6 @@ import axios from 'axios';
 import "./NavBar.css"
 
 import react_svg from '../assets/react.svg';
-import { UserContext } from '../UserContext';
 
 function NavBar(props) {
 

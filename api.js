@@ -117,7 +117,11 @@ export const async_create_recruiter_profile = async (user_id) => {
             user_id: user_id,
             org_id: org_response.data.org_id,
         });
-        return response;
+        if (response.status === 201) {
+            console.log("Recruiter profile created successfully");
+            return response.data;
+        }
+        return null;
     }
     catch (error) {
         console.error("Error in async_create_recruiter_profile:", error);
@@ -127,11 +131,14 @@ export const async_create_recruiter_profile = async (user_id) => {
 
 export const async_get_recruiter = async (user_id) => {
     try {
-        const response = await api.get(`${RECRUITER_URL}/${user_id}`);
-        if (response.status === 404) {
-            return null;
+        const responses = await api.get(`${RECRUITER_URL}`);
+        // manually check if the user_id matches
+        for (let i = 0; i < responses.data.length; i++) {
+            if (responses.data[i].user_id === user_id) {
+                return responses.data[i];
+            }
         }
-        return response.data;
+        return null;
     } catch (error) {
         console.error("Error in async_get_recruiter:", error);
         return null;
