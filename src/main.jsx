@@ -33,6 +33,8 @@ import {UserContext} from './UserContext.jsx';
 import JobList from './pages/HRView/JobList.jsx';
 import ApplyJob from './pages/CandidateView/ApplyJob.jsx';
 
+import CandidateProfile from './pages/HRView/CandidateProfile.jsx';
+
 function Fetch() {
   const [data, setData] = useState('');
   // fetch user data
@@ -88,11 +90,6 @@ const router = createBrowserRouter([
     element: <ApplyJob />,
     errorElement: <ErrorPage />,
   },
-  // {
-  //   path: "/candidates/:id",
-  //   element: <CandidateProfile />,
-  //   errorElement: <ErrorPage />,
-  // },
   {
     path: "/",
     element: <Root />,
@@ -125,6 +122,11 @@ const router = createBrowserRouter([
       {
         path: "/job-view",
         element: <JobView />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/candidates/:candidateId",
+        element: <CandidateProfile />,
         errorElement: <ErrorPage />,
       },
       

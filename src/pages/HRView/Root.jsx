@@ -17,6 +17,10 @@ export default function Root() {
     const fetchUserInfo = async () => {
       try {
         const userInfo = await get_user_info();
+        if (!userInfo) {
+          navigate('/login');
+          return;
+        }
         setUser_info(userInfo);
       } catch (error) {
         navigate('/login');

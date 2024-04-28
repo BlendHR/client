@@ -1,4 +1,4 @@
-import "../ai-gen/front-screen.css"
+// import "../ai-gen/front-screen.css"
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 
 
