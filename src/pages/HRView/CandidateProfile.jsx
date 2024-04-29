@@ -30,9 +30,9 @@ function CandidateProfile(){
 useEffect(() => {
   const fetchCandidate = async () => {
     try {
-      const applicationDetail = await instance.get(`/candidate_detail/${id}`);
+      const applicationDetail = await instance.get(`/candidate_applications_detail/${id}`);
       setCandidate(applicationDetail.data);
-      setApplication(applicationDetail.data.candidateapplication_set);
+      setApplication(applicationDetail.data.applications);
     } catch (error) {
       console.error('Failed to fetch candidate', error);
     }

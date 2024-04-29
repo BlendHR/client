@@ -9,6 +9,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 function JobPostForm() {
+
   const [jobTitle, setJobTitle] = useState('');
   const [overview, setOverview] = useState('');
   const [richOverview, setRichOverview] = useState('');
@@ -19,9 +20,6 @@ function JobPostForm() {
 
   const [success, setSuccess] = useState('');
   const history = useNavigate();
-
-
-  const user = useContext(UserContext);
 
   const handleSubmit = async (e) => {
 
@@ -48,11 +46,9 @@ function JobPostForm() {
 
 return (
   <>
-  <h1>Job Post Form</h1>
-  <Container style={{ marginTop: '2rem', width: '200px' }} >
-  <Card style={{ width: '300%' }}>
-    <Card.Body style={{ marginTop: '2rem', width: '100%' }}>
-      <Form onSubmit={handleSubmit}>
+  <h1 style={{textAlign:'center'}}>Job Post Form</h1>
+  <section style={{display:'flex', justifyContent:'center'}}>
+      <Form onSubmit={handleSubmit} style={{width:'200%'}}>
         <Form.Group controlId="formGridJobTitle">
           <Form.Label>Job Title</Form.Label>
           <Form.Control 
@@ -121,9 +117,7 @@ return (
           Submit
         </Button>
       </Form>
-    </Card.Body>
-  </Card>
-  </Container>
+  </section>
   </>
 );
 }

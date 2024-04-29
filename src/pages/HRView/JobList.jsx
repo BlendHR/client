@@ -41,13 +41,9 @@ function JobList() {
             <Card.Text>
               Work type: {job.work_type}
             </Card.Text>
-            {/* <Link to={`/apply-job/${job.job_id}`}>
-              <Button variant="primary">Apply</Button>
-            </Link> */}
-            {
-              //link to post job
-             
-            }
+            <Link to={`/job-view/${job.job_id}`}>
+              <Button variant="primary">View Job</Button>
+            </Link>
           </Card.Body>
           
         </Card>

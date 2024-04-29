@@ -68,11 +68,9 @@ function JobEditForm() {
 
     return (
         <>
-        <h1>Job Post Form</h1>
-        <Container style={{ marginTop: '2rem', width: '200px' }} >
-        <Card style={{ width: '300%' }}>
-          <Card.Body style={{ marginTop: '2rem', width: '100%' }}>
-            <Form onSubmit={handleSubmit}>
+        <h1  style={{textAlign:'center'}}>Job Edit Form</h1>
+        <section>
+            <Form onSubmit={handleSubmit} style={{width:'80%', marginTop: '8rem'}} >
               <Form.Group controlId="formGridJobTitle">
                 <Form.Label>Job Title</Form.Label>
                 <Form.Control 
@@ -137,13 +135,16 @@ function JobEditForm() {
                 />
               </Form.Group>
               <br />
-              <Button variant="primary" type="submit" disabled={isLoading}>
+              <Button style={{width:'150px'}} variant="primary" type="submit" disabled={isLoading}>
                 {isLoading ? <Spinner animation="border" size="sm" /> : (success ? success : 'Update')}
               </Button>
+              <Button style={{width:'150px', marginLeft:'20px'}} variant="primary" onClick={() => navigate('/jobs')}>Add Stage</Button>
             </Form>
-          </Card.Body>
-        </Card>
-        </Container>
+            
+            </section>
+            <section>
+            </section>
+        
         </>
       );
       }

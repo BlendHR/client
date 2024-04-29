@@ -23,6 +23,9 @@ import CandidateProfile from './pages/HRView/CandidateProfile.jsx';
 import JobList from './pages/HRView/JobList.jsx';
 import ApplyJob from './pages/CandidateView/ApplyJob.jsx';
 import JobEditForm from './pages/HRView/JobEditForm.jsx';
+import JobViewHR from './pages/HRView/JobView.jsx';
+import Dashboard from './pages/HRView/Dashboard.jsx';
+
 function Fetch() {
 
 
@@ -49,55 +52,61 @@ function Fetch() {
     errorElement: <ErrorPage />,
   },
   {
-    path: "/apply-job/:jobId",
-    element: <ApplyJob />,
-    errorElement: <ErrorPage />,
-  }
-,
-  {
-    path: "/candidates/:id",
-    element: <CandidateProfile />,
-    errorElement: <ErrorPage />,
-  }
-,
-{
-  path: "/edit-job/:id",
-  element: <JobEditForm />,
-},
-  {
-    path: "/",
-    element: <Root />,
-    children: [ // Now the sidebar will act as a layout for all of the below pages. I think this is more optimized
-      {
-        path: "/team",
-        element: <div>
-          <UserList /> 
-          <InviteLinkForm />
-                </div>,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/dashboard",
-        element: <div>Dashboard</div>,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/jobs",
-        element: <JobList />,
-      },
-      {
-        path: "/post-job",
-        element: <JobPostForm />,
-      },
-      {
-        path: "/candidates",
-        element: <Candidates />,
-      },
-      {
-        path: "/job-view",
-        element: <JobView />,
-        errorElement: <ErrorPage />,
-      },
+      path: "/",
+      element: <Root />,
+      children: [
+        // Now the sidebar will act as a layout for all of the below pages. I think this is more optimized
+          {
+            path: "/apply-job/:jobId",
+            element: <ApplyJob />,
+            errorElement: <ErrorPage />,
+          }
+        ,
+        {
+          path: "/job-view/:id",
+          element: <JobViewHR />,
+          errorElement: <ErrorPage />,
+        },
+          {
+            path: "/candidates/:id",
+            element: <CandidateProfile />,
+            errorElement: <ErrorPage />,
+          }
+        ,
+        {
+          path: "/edit-job/:id",
+          element: <JobEditForm />,
+        },
+        {
+          path: "/team",
+          element: <div>
+            <UserList /> 
+            <InviteLinkForm />
+                  </div>,
+          errorElement: <ErrorPage />,
+        },
+        {
+          path: "/dashboard",
+          element: <Dashboard />,
+          errorElement: <ErrorPage />,
+        },
+        {
+          path: "/jobs",
+          element: <JobList />,
+        },
+        {
+          path: "/post-job",
+          element: <JobPostForm />,
+        },
+        {
+          path: "/candidates",
+          element: <Candidates />,
+        },
+        {
+          path: "/job-view",
+          element: <JobView />,
+          errorElement: <ErrorPage />,
+        },
     ]
   },
   
