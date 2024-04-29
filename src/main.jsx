@@ -24,12 +24,11 @@ import JobPostForm from './components/JobPostForm.jsx';
 import Candidates from './pages/HRView/Candidates.jsx';
 //import candidate login 
 import LoginCandidate from './pages/CandidateView/Login.jsx';
-import JobView from './pages/CandidateView/JobViewCandidate.jsx';
-import CreateJob from './pages/HRView/CreateJob.jsx';
 
 
 import JobList from './pages/HRView/JobList.jsx';
 import ApplyJob from './pages/CandidateView/ApplyJob.jsx';
+import JobView from './pages/HRView/JobView.jsx';
 
 import CandidateProfile from './pages/HRView/CandidateProfile.jsx';
 import { UserProvider } from './UserContext.jsx';
@@ -117,17 +116,16 @@ const router = createBrowserRouter([
         element: <JobList />,
       },
       {
+        path: "/jobs/:jobId",
+        element: <JobView />,
+      },
+      {
         path: "/post-job",
         element: <JobPostForm />,
       },
       {
         path: "/candidates",
         element: <Candidates />,
-      },
-      {
-        path: "/job-view",
-        element: <JobView />,
-        errorElement: <ErrorPage />,
       },
       {
         path: "/candidates/:candidateId",

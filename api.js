@@ -24,11 +24,10 @@ const USER_INFO_URL = "/api/accounts/users/me";
 // add more
 
 // functions
-const GET_JOBS_INFO_URL = "/api/jobs/";
 
 const GET_CANDIDATES_URL = "/api/candidates/";
 
-const POST_JOB_URL = "/api/jobs/";
+const JOB_URL = "/api/jobs/";
 
 
 export const async_login = async (email, password) => {
@@ -85,9 +84,10 @@ export const get_user_info = async () => {
     }
 }
 
-export const async_get_jobs_info = async (jobId, stageID) => {    
+export const async_get_jobs_info = async (jobId = null) => {    
     try {
-        const response = await api.get(GET_JOBS_INFO_URL);
+        const url = jobId ? `${JOB_URL}${jobId}/` : JOB_URL;
+        const response = await api.get(url);
         return response.data;
     } catch (error) {
         console.error("Error in async_get_jobs_info:", error);
@@ -95,15 +95,15 @@ export const async_get_jobs_info = async (jobId, stageID) => {
     }
 }
 
-export const async_get_candidates = async () => {
-    try {
-        const response = await api.get(GET_CANDIDATES_URL);
-        return response.data;
-    } catch (error) {
-        console.error("Error in async_get_candidates:", error);
-        return null;
-    }
-}
+// export const async_get_candidates = async () => {
+//     try {
+//         const response = await api.get(GET_CANDIDATES_URL);
+//         return response.data;
+//     } catch (error) {
+//         console.error("Error in async_get_candidates:", error);
+//         return null;
+//     }
+// }
 
 export const async_create_recruiter_profile = async (user_id) => {
     try {
@@ -144,3 +144,18 @@ export const async_get_recruiter = async (user_id) => {
         return null;
     }
 }
+
+export const async_get_candidates = async (jobId = null) => {
+    try {
+      let url = '/candidates/';
+      if (jobId !== null) {
+        url += `?job_id=${jobId}`;
+      }
+  
+      const response = await api.get(url);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      return null;
+    }
+  };

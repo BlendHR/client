@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import CandidateList from '../../components/CandidateList';
 import './Candidates.css';
 // import axios 
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
+import { async_get_candidates } from '../../../api';
+import { Spinner, Container } from 'react-bootstrap';
 
 
 
@@ -32,14 +34,31 @@ function StatusFilter() {
 }
 
 const Candidates = () => {
-  const candidate = {/* Fetch or define candidate data here */};
+  const [candidates, setCandidates] = useState([]);
+  const [fetched, setFetched] = useState(false);
+
+  useEffect(() => {
+    const fetchCandidates = async () => {
+      try {
+        const candidates = await async_get_candidates();
+        setCandidates(candidates);
+        setFetched(true);
+      } catch (error) {
+        console.error("Error in Candidates.jsx", error);
+      }
+    }
+
+    fetchCandidates();
+  }, []);
 
   return (
     <div>
       <h1>All Candidates</h1>
         <JobFilter />
         <StatusFilter />
-      <CandidateList candidate={candidate} />
+        <Container>
+          {fetched? <CandidateList candidates={candidates} /> : <Spinner animation="border" />}
+        </Container>
     </div>
   );
 };
