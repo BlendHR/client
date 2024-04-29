@@ -33,6 +33,7 @@ import ApplyJob from './pages/CandidateView/ApplyJob.jsx';
 
 import CandidateProfile from './pages/HRView/CandidateProfile.jsx';
 import { UserProvider } from './UserContext.jsx';
+import CandidateApplicationForm from './pages/CandidateView/CandidateApplicationForm.jsx';
 
 function Fetch() {
 //   const [data, setData] = useState('');
@@ -87,6 +88,11 @@ const router = createBrowserRouter([
   {
     path: "/apply-job/:jobId",
     element: <ApplyJob />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/bad-apply",
+    element: <CandidateApplicationForm />,
     errorElement: <ErrorPage />,
   },
   {
