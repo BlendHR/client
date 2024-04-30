@@ -11,11 +11,6 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 // import components
-import SideBar from './components/SideBar'
-import CandidateLogin from './pages/CandidateView/Login'
-import Nav from './components/nav-bar'
-import ApplyJob from './pages/CandidateView/ApplyJob';
-import JobView from './pages/CandidateView/JobViewCandidate';
 // App.js
 function App() {
   return (

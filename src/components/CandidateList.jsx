@@ -1,56 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import instance from '../axios';
 import "./JobCardList.css";
-import { Link } from 'react-router-dom';
-import { Spinner } from 'react-bootstrap';
 import {Container} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
-import { async_get_candidates } from '../../api';
-
-function CandidateList() {
-  const [candidates, setCandidates] = useState([]);
-  const [fetched, setFetched] = useState(false);
-
-  useEffect(() => {
-    const fetchCandidates = async () => {
-      try {
-        const candidates = await async_get_candidates();
-        setCandidates(candidates);
-        setFetched(true);
-      } catch (error) {
-        console.error("Error in CandidateList.jsx::fetchCandidates:", error);
-      }
-    }
-
-    fetchCandidates();
-  }, []);
-
+function CandidateList({ candidates }) {
+  const navigate = useNavigate();
   return (
-    <Container> 
+    <div>
+      <br>
+      </br>
+        <Container>
+          <Row>
+            {candidates.map((candidate) => (
+              <Col key={candidate.candidate_id} md={20}>
+                <Card style={{ width: '18rem', marginBottom: '1rem' }}>
+                  <Card.Body>
+                    <Card.Title>{candidate.first_name} {candidate.last_name}</Card.Title>
 
-      {fetched ? null : <Spinner animation="border" />}
-      <Row xs={1} md={3} className="g-4">
-        {candidates.map((candidate) => (
-          <Col key={candidate.candidate_id}>
-            <Link to={`/candidates/${candidate.candidate_id}`}>
-              <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" />
-                <Card.Body>
-                  <Card.Title>{candidate.candidate_id}</Card.Title>
-                  <Card.Text>
-                    {candidate.first_name} {candidate.last_name} <br />
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Link>
-          </Col>
-        ))}
-      </Row>
-    </Container>
+                    <Card.Text>
+                      {/* Applied On: {new Date(candidateApplication.find(app => app.candidate_id === candidate.candidate_id).applied_on).toLocaleDateString()} */}
+                    </Card.Text>
+                    <Card.Text>
+                      Resume Relevance Score: <b>{candidate.resume_score}</b>
+                    </Card.Text>
+                    <Card.Text>
+                      <Button variant="primary" onClick={() => navigate(`/candidates/${candidate.candidate_id}`)} style={{width:'45%'}}>View Profile</Button>
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+    </div>
   );
 }
 
