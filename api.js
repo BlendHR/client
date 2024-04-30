@@ -1,7 +1,7 @@
 // api instance for the drf backend
 import axios from "axios";
 
-export const BASE_URL = "https://animated-funicular-jp49gw99w95c5wj4-8000.app.github.dev/";
+export const BASE_URL = "http://localhost:8000";
 
 export const api = axios.create({
     baseURL: BASE_URL,
